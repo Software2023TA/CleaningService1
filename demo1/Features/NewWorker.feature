@@ -1,4 +1,4 @@
-Feature: the user can create his own account
+Feature: The Admin can create new workers
 
   Scenario: Create a new worker with valid data
     When the Admin enters valid data

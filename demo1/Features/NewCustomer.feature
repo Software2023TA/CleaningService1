@@ -1,4 +1,4 @@
-Feature: the user can create his own account
+Feature: The User can create his own account
 
   Scenario: Create a new account with valid data
     When the user enters valid data
