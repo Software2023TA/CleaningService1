@@ -1,2 +1,4 @@
 001	Ali		cover	200x200	Dry Cleaning	0
 002	tarq		cover	200x200	Dry Cleaning	338
+003	Amer		carpet	300x200	Deep Cleaning	414
+004	Amer		cover	300x200	Dry Cleaning	383

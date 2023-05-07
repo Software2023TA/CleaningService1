@@ -5,8 +5,6 @@ Tariq,tariq12
 belal,123123
 tarq,123123
 Amer,1010
-
-
 Ali,1212
 Worker15,1
 Worker13,1
