@@ -34,15 +34,6 @@ public class Scene2Controller {
     @FXML
     private TabPane tabPane;
 
-    @FXML
-    private Tab Maintab;
-
-    @FXML
-    private Tab Shippingtab;
-
-    @FXML
-    private Button NEXTbutton;
-
     String itemname ;
     String itemsize;
     String cleaningtype;
