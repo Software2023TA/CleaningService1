@@ -11,6 +11,7 @@ import javafx.scene.control.*;
 import java.io.*;
 import java.util.Optional;
 import java.util.Scanner;
+import java.util.logging.Logger;
 
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
@@ -26,7 +27,7 @@ public class Scene1Controller {
     @FXML
     private PasswordField fieldPass=null;
     @FXML
-    private TextField fieldUser;
+    private static TextField fieldUser;
     @FXML
     public Parent getRoot() {
         return root;
@@ -200,12 +201,12 @@ public class Scene1Controller {
         }
         return email;
     }
+    private static final Logger LOGGER = Logger.getLogger(Scene1Controller.class.getName());
 
-
-    public String getUsername() throws IOException{
+    public static String getUsername() throws IOException{
         if (fieldUser != null) {
             username= fieldUser.getText();
-            System.out.println(username+"123");
+            LOGGER.info(username+"123");
             return username ;
 
         } else {

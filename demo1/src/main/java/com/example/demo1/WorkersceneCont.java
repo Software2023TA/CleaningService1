@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 import java.io.*;
 import java.util.Objects;
 import java.util.Scanner;
+import java.util.logging.Logger;
 
 public class WorkersceneCont {
 
@@ -47,13 +48,15 @@ public class WorkersceneCont {
     public TextField getTextID() {
         return textID;
     }
+    private static final Logger LOGGER = Logger.getLogger(Scene2Controller.class.getName());
 
     public void Orders() throws IOException {
         String filename = "Order.txt";
         String id = textID.getText();
         BufferedWriter writer = new BufferedWriter(new FileWriter(filename, true));
-        writer.write(Scene1Controller.username + "\t" + id + "\t" + status + "\n");        writer.close();
-        System.out.println("Order saved to file: " + filename);
+        writer.write(Scene1Controller.username + "\t" + id + "\t" + status + "\n");
+        writer.close();
+        LOGGER.info("Order saved to file: " + filename);
     }
 
     public void AvailableW() throws IOException {
@@ -61,7 +64,7 @@ public class WorkersceneCont {
         BufferedWriter writer = new BufferedWriter(new FileWriter(filename, true));
         writer.write(Scene1Controller.username + "\t" + AvailableWorker + "\n");
         writer.close();
-        System.out.println("Order saved to file: " + filename);
+        LOGGER.info("Order saved to file: " + filename);
     }
 
     public String getWorkerStatus(String workerName) throws IOException {
