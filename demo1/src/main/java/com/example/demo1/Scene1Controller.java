@@ -27,7 +27,7 @@ public class Scene1Controller {
     @FXML
     private PasswordField fieldPass=null;
     @FXML
-    private static TextField fieldUser;
+    private TextField fieldUser;
     @FXML
     public Parent getRoot() {
         return root;
