@@ -17,10 +17,6 @@ import java.io.InputStreamReader;
 
 public class Main extends Application {
 
-
-    //Added late
-    public static Node stage;
-
     static Stage primaryStage;
     static Scene1Controller scene1Controller;
     static Scene3Controller scene3Controller;
