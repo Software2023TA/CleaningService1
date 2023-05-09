@@ -2,6 +2,7 @@ package com.example.demo1;
 
 import java.io.IOException;
 import java.util.Properties;
+import java.util.logging.Logger;
 
 import javax.mail.Message;
 import javax.mail.MessagingException;
@@ -15,6 +16,8 @@ import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 
 public class sendEmail {
+    private static final Logger LOGGER = Logger.getLogger(Scene2Controller.class.getName());
+    String sentMSG = "Sent message";
     public sendEmail() {
         final String username = "cleaningservicezt2023@gmail.com";
         final String password = "txkjgexkvplmbvgs";
@@ -55,7 +58,7 @@ public class sendEmail {
             msg.setContent(emailContent);
 
             Transport.send(msg);
-            System.out.println("Sent message");
+            LOGGER.info(sentMSG);
         } catch (MessagingException e) {
             e.printStackTrace();
         } catch (IOException ex) {
@@ -87,7 +90,7 @@ public class sendEmail {
             msg.setSubject(subject);
             msg.setText(body);
             Transport.send(msg);
-            System.out.println("Sent message");
+            LOGGER.info(sentMSG);
         } catch (MessagingException e) {
             e.printStackTrace();
         }

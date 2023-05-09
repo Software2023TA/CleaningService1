@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 import java.io.*;
 import java.util.Objects;
 import java.util.Scanner;
+import java.util.logging.Logger;
 
 public class WorkersceneCont {
 
@@ -24,18 +25,19 @@ public class WorkersceneCont {
     private TextField textID;
 
     private String status;
-    private String AvailableWorker;
+    private String availableWorker;
     private static String  MsgText;
     @FXML
-    public void Reloading (ActionEvent event) throws FileNotFoundException {
+    public void reloading(ActionEvent event) throws FileNotFoundException {
 
 
         File file = new File("C:\\Users\\Msys\\Desktop\\CleaningSrv\\Reports.txt");
         Scanner scanner = new Scanner(file);
-        String fileContent = "";
+        StringBuilder fileContentBuilder = new StringBuilder();
         while (scanner.hasNextLine()) {
-            fileContent += scanner.nextLine() + "\n";
+            fileContentBuilder.append(scanner.nextLine()).append("\n");
         }
+        String fileContent = fileContentBuilder.toString();
         scanner.close();
 
         textArea.setText(fileContent);
@@ -45,24 +47,24 @@ public class WorkersceneCont {
     public String getTextID() {
         return textID.getText();
     }
-
-    public void Orders() throws IOException {
+    private static final Logger LOGGER = Logger.getLogger(Scene2Controller.class.getName());
+    public void orders() throws IOException {
         String filename = "Order.txt";
         String id = textID.getText();
         // Read the contents of the original file
         BufferedWriter writer = new BufferedWriter(new FileWriter(filename, true));
         Scene1Controller s = new Scene1Controller();
         writer.write(s.getUsername() + "\t" + id + "\t" + status + "\n");        writer.close();
-        System.out.println("Order saved to file: " + filename);
+        LOGGER.info("Order saved to file: " + filename);
     }
 
-    public void AvailableW() throws IOException {
+    public void availableW() throws IOException {
         String filename = "AvailableW.txt";
         BufferedWriter writer = new BufferedWriter(new FileWriter(filename, true));
         Scene1Controller s = new Scene1Controller();
-        writer.write(s.getUsername() + "\t" + AvailableWorker + "\n");
+        writer.write(s.getUsername() + "\t" + availableWorker + "\n");
         writer.close();
-        System.out.println("Order saved to file: " + filename);
+        LOGGER.info("Order saved to file: " + filename);
     }
 
     public String getWorkerStatus(String workerName) throws IOException {
@@ -79,30 +81,30 @@ public class WorkersceneCont {
         return null;
     }
     @FXML
-    public void Waiting (ActionEvent event) throws IOException {
+    public void waiting(ActionEvent event) throws IOException {
         status = "Added";
-        AvailableWorker = "Unavailable";
+        availableWorker = "Unavailable";
         MsgText = "Your order has been added to the system and is waiting for a worker to accept it.\n Your order ID is: " + textID.getText() + "\n Thank you for using our service.\n";
         String number = getTextID();
         getName(String.valueOf(number));
-        Orders();
-        AvailableW();
+        orders();
+        availableW();
     }
     @FXML
-    public void In_Treatment (ActionEvent event) throws IOException {
+    public void inTreatment(ActionEvent event) throws IOException {
         status = "InTreatment";
         MsgText = "Your order has been accepted by a worker and is being treated.\n Your order ID is: " + textID.getText() + "\n Thank you for using our service.\n";
         getName(textID.getText());
-        Orders();
+        orders();
     }
     @FXML
-    public void Complete (ActionEvent event) throws IOException {
+    public void complete(ActionEvent event) throws IOException {
         status = "Complete";
-        AvailableWorker = "Available";
+        availableWorker = "Available";
         MsgText = "Your order has been completed.\n Your order ID is: " + textID.getText() + "\n Thank you for using our service.\n";
         getName(textID.getText());
-        Orders();
-        AvailableW();
+        orders();
+        availableW();
     }
 
     public void switchScene1(ActionEvent event) throws IOException {

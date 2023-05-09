@@ -206,7 +206,8 @@ public class Scene1Controller {
     public String getUsername() throws IOException{
         if (fieldUser != null) {
             username= fieldUser.getText();
-            LOGGER.info(username+"123");
+            String userin = username + "123";
+            LOGGER.info(userin);
             return username ;
 
         } else {
