@@ -34,6 +34,14 @@ public class Scene2Controller {
     @FXML
     private TabPane tabPane;
 
+    @FXML
+    private Tab Maintab;
+
+    @FXML
+    private Tab Shippingtab;
+
+    @FXML
+    private Button NEXTbutton;
 
     String itemname ;
     String itemsize;
@@ -328,7 +336,7 @@ public boolean isclicked =false;
     private void Bwr(String filename) throws IOException {
         BufferedWriter writer = new BufferedWriter(new FileWriter(filename, true));
         CustomerId = String.format("%03d", counter);
-        writer.write(CustomerId + "\t" +  + "\t" + DelText.getText() + "\t" + itemname + "\t" + itemsize + "\t" + cleaningtype + "\t" + Price + "\n");
+        writer.write(CustomerId + "\t" + s1.getUsername() + "\t" + DelText.getText() + "\t" + itemname + "\t" + itemsize + "\t" + cleaningtype + "\t" + Price + "\n");
         counter++;
         MsgText = "Your order with IDnumber " + CustomerId + " has been accepted and will be processed shortly, it will be sent to this location when it's done " + DelText.getText() + " Thank you for choosing us";
         writer.close();
@@ -338,7 +346,7 @@ public boolean isclicked =false;
     private void Bwrr(String filename) throws IOException {
         BufferedWriter writer = new BufferedWriter(new FileWriter(filename, true));
         CustomerId = String.format("%03d", counter);
-        writer.write(CustomerId + "\t" + Scene1Controller.username + "\t" + "" +  "\t" + itemname + "\t" + itemsize + "\t" + cleaningtype + "\t" + res + "\n");
+        writer.write(CustomerId + "\t" + s1.getUsername() + "\t" + "" +  "\t" + itemname + "\t" + itemsize + "\t" + cleaningtype + "\t" + res + "\n");
         counter++;
         MsgText = "Your order with IDnumber " + CustomerId + " has been accepted and will be processed shortly, We will send you an email when it's ready to pickup, Thank you for choosing us";
         writer.close();
