@@ -13,14 +13,16 @@ import org.junit.Before;
 import java.io.IOException;
 
 public class AvailabilityTest {
-    private TextField orderId;
+    private String orderId;
 
     @When("the worker enter the order ID")
     public void the_worker_enter_the_order_id() {
         // Write code here that turns the phrase above into concrete actions
         //throw new io.cucumber.java.PendingException();
+        Platform.runLater(() -> {
         WorkersceneCont ob = new WorkersceneCont();
         orderId = ob.getTextID();
+        });
     }
 
     @When("click on Waiting button")

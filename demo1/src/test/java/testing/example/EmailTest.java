@@ -17,7 +17,7 @@ public class EmailTest {
         //throw new io.cucumber.java.PendingException();
         Platform.runLater(() -> {
         WorkersceneCont obj = new WorkersceneCont();
-        TextField id = obj.getTextID();
+        String id = obj.getTextID();
         String ActMsg =obj.getMsg();
         String ExpMsg = "Your order has been added to the system and is waiting for a worker to accept it.\n Your order ID is: " + id + "\n Thank you for using our service.\n";
         assertEquals(ExpMsg.startsWith("Your order has been added"),ActMsg.startsWith("Your order has been added"));

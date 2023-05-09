@@ -30,7 +30,7 @@ public class WorkersceneCont {
     public void Reloading (ActionEvent event) throws FileNotFoundException {
 
 
-        File file = new File("C:\\Users\\Msys\\OneDrive\\Desktop\\CleaningSrv\\Reports.txt");
+        File file = new File("C:\\Users\\Msys\\Desktop\\CleaningSrv\\Reports.txt");
         Scanner scanner = new Scanner(file);
         String fileContent = "";
         while (scanner.hasNextLine()) {
@@ -42,8 +42,8 @@ public class WorkersceneCont {
 
     }
 
-    public TextField getTextID() {
-        return textID;
+    public String getTextID() {
+        return textID.getText();
     }
 
     public void Orders() throws IOException {
@@ -81,7 +81,8 @@ public class WorkersceneCont {
         status = "Added";
         AvailableWorker = "Unavailable";
         MsgText = "Your order has been added to the system and is waiting for a worker to accept it.\n Your order ID is: " + textID.getText() + "\n Thank you for using our service.\n";
-        getName(textID.getText());
+        String number = getTextID();
+        getName(String.valueOf(number));
         Orders();
         AvailableW();
     }
@@ -121,7 +122,7 @@ public class WorkersceneCont {
     public static String getName(String id) {
         String name = "";
         sent = false;
-        try (Scanner scanner = new Scanner(new File("Reports.txt"))) {
+        try (Scanner scanner = new Scanner(new File("C:\\Users\\Msys\\Desktop\\CleaningSrv\\Reports.txt"))) {
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
                 String[] fields = line.split("\t");
@@ -132,7 +133,7 @@ public class WorkersceneCont {
                     String subject = "OrderUpdate";
                     messageBody = MsgText;
                     sendEmail x = new sendEmail(email12, subject, messageBody);
-                    sent = true;
+                   sent = true;
                 }
 
             }
