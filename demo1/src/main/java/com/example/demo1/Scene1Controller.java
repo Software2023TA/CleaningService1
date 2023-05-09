@@ -203,7 +203,7 @@ public class Scene1Controller {
     }
     private static final Logger LOGGER = Logger.getLogger(Scene1Controller.class.getName());
 
-    public static String getUsername() throws IOException{
+    public String getUsername() throws IOException{
         if (fieldUser != null) {
             username= fieldUser.getText();
             LOGGER.info(username+"123");
