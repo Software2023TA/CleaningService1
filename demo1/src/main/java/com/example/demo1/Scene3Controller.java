@@ -30,8 +30,8 @@ public class Scene3Controller {
     private TextArea textarea1;
     private int totalCash = 0;
     private int numOrders = 0;
-    public boolean co = false;
-    public boolean ch = false;
+    public boolean CO = false;
+    public boolean CH = false;
 
     @FXML
     private TextField firstname;
@@ -72,44 +72,34 @@ public class Scene3Controller {
       clearAllFields();
   }
 
-<<<<<<< HEAD
-  public void calculateCash()  {
-      CH = true;
-=======
-  public void calculateCash(ActionEvent event) throws IOException {
-      ch = true;
->>>>>>> 58c54a2 (no message)
-    cashfield.setEditable(false);
-   try (BufferedReader reader = new BufferedReader(new FileReader(reportFile))) {
-    String line;
-    while ((line = reader.readLine()) != null) {
-     String[] tokens = line.split("\t");
-     totalCash += Integer.parseInt(tokens[tokens.length - 1]);
+    public void calculateCash()  {
+        CH = true;
+        cashfield.setEditable(false);
+        try (BufferedReader reader = new BufferedReader(new FileReader(reportFile))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] tokens = line.split("\t");
+                totalCash += Integer.parseInt(tokens[tokens.length - 1]);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        cashfield.setText(String.valueOf(totalCash));
     }
-   } catch (IOException e) {
-    e.printStackTrace();
-   }
-   cashfield.setText(String.valueOf(totalCash));
-  }
-<<<<<<< HEAD
- public void countOrders()  {
-      CO = true;
-=======
- public void countOrders(ActionEvent event) throws IOException {
-      co = true;
->>>>>>> 58c54a2 (no message)
-     salesfield.setEditable(false);
-  try (BufferedReader reader = new BufferedReader(new FileReader(reportFile))) {
-     String readStored = reader.readLine();
-   while (readStored != null) {
-    numOrders++;
-   }
-  } catch (IOException e) {
-   e.printStackTrace();
-  }
+    public void countOrders()  {
+        CO = true;
+        salesfield.setEditable(false);
+        try (BufferedReader reader = new BufferedReader(new FileReader(reportFile))) {
+            String readStored = reader.readLine();
+            while (readStored != null) {
+                numOrders++;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
-  salesfield.setText(String.valueOf(numOrders));
- }
+        salesfield.setText(String.valueOf(numOrders));
+    }
 
     public void saveUserData()  {
         String fname = "";
@@ -183,6 +173,7 @@ public class Scene3Controller {
         scanner.close();
         String fileContent = sb.toString();
         textarea1.setText(fileContent);
+
     }
 
 

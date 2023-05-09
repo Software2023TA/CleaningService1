@@ -25,17 +25,10 @@ public class Scene2Controller {
     @FXML
     public TextField delText;
     @FXML
-<<<<<<< HEAD
-    public TextField ShippingType;
+    public TextField shippingType;
     String customerId ="null";
     private String orderAccepted = "Order Accepted";
     private String msgText ="null";
-=======
-    public TextField shippingType;
-    String CustomerId="null";
-    private String OrderAccepted = "Order Accepted";
-    private String MsgText ="null";
->>>>>>> 58c54a2 (no message)
     @FXML
     Label location;
     @FXML
@@ -79,11 +72,6 @@ public class Scene2Controller {
             itemtxt.setText("Carpet");
         }
     }
-<<<<<<< HEAD
-    public boolean isCover =false;
-    public void cover() {
-        isCover =true;
-=======
     private static boolean iscover =false;
 
     public void setIscover(boolean iscover) {
@@ -95,7 +83,6 @@ public class Scene2Controller {
 
     public void cover() {
         setIscover(true);
->>>>>>> 58c54a2 (no message)
         itemname = "cover";
         if (itemtxt != null) {
             itemtxt.setText("Cover");
@@ -145,27 +132,16 @@ public class Scene2Controller {
             int dis = (int) (res * 0.1);
             if (res > 400){
                 res -= dis;
-<<<<<<< HEAD
-                if (isCover){
+                if (iscover){
                     res = res - 40;
                     alr.setContentText(con1+ res);
-                    isCover =false;
-=======
-                if (getIscover()){
-                    res = res - 40;
-                    alr.setContentText(con1+ res);
-                    setIscover(false);
->>>>>>> 58c54a2 (no message)
+                    iscover=false;
                 }
                 else {
                     alr.setContentText(con1+ res);
                 }
             }else{
-<<<<<<< HEAD
-                if (isCover) {
-=======
-                if (getIscover()) {
->>>>>>> 58c54a2 (no message)
+                if (iscover) {
                     res = res - 40;
                     alr.setContentText(con2 + res);
                 }else{
@@ -192,27 +168,16 @@ public class Scene2Controller {
             int dis = (int) (res * 0.1);
             if (res > 400){
                 res -= dis;
-<<<<<<< HEAD
-                if (isCover){
+                if (iscover){
                     res = res - 40;
                     alr.setContentText(con1 + res);
-                    isCover =false;
-=======
-                if (getIscover()){
-                    res = res - 40;
-                    alr.setContentText(con1 + res);
-                    setIscover(false);
->>>>>>> 58c54a2 (no message)
+                    iscover=false;
                 }
                 else {
                     alr.setContentText(con1 + res);
                 }
             }else{
-<<<<<<< HEAD
-                if (isCover) {
-=======
-                if (getIscover()) {
->>>>>>> 58c54a2 (no message)
+                if (iscover) {
                     res = res - 40;
                     alr.setContentText(con2 + res);
                 }else{
@@ -234,27 +199,16 @@ public class Scene2Controller {
             int dis = (int) (res * 0.1);
             if (res > 400){
                 res -= dis;
-<<<<<<< HEAD
-                if (isCover){
+                if (iscover){
                     res = res - 40;
                     alr.setContentText(con1 + res);
-                    isCover =false;
-=======
-                if (getIscover()){
-                    res = res - 40;
-                    alr.setContentText(con1 + res);
-                    setIscover(false);
->>>>>>> 58c54a2 (no message)
+                    iscover=false;
                 }
                 else {
                     alr.setContentText(con1 + res);
                 }
             }else{
-<<<<<<< HEAD
-                if (isCover) {
-=======
-                if (getIscover()) {
->>>>>>> 58c54a2 (no message)
+                if (iscover) {
                     res = res - 40;
                     alr.setContentText(con2 + res);
                 }else{
@@ -375,17 +329,11 @@ public static boolean isclicked =false;
 
     private void bwr(String filename) throws IOException {
         BufferedWriter writer = new BufferedWriter(new FileWriter(filename, true));
-<<<<<<< HEAD
         customerId = String.format("%03d", counter);
-        writer.write(customerId + "\t" + s1.getUsername() + "\t" + DelText.getText() + "\t" + itemname + "\t" + itemsize + "\t" + cleaningtype + "\t" + Price + "\n");
+        writer.write(customerId + "\t" + s1.getUsername() + "\t" + delText.getText() + "\t" + itemname + "\t" + itemsize + "\t" + cleaningtype + "\t" + price + "\n");
         counter++;
-        msgText = "Your order with IDnumber " + customerId + " has been accepted and will be processed shortly, it will be sent to this location when it's done " + DelText.getText() + " Thank you for choosing us";
-=======
-        CustomerId = String.format("%03d", counter);
-        writer.write(CustomerId + "\t" + s1.getUsername() + "\t" + delText.getText() + "\t" + itemname + "\t" + itemsize + "\t" + cleaningtype + "\t" + price + "\n");
-        counter++;
-        MsgText = "Your order with IDnumber " + CustomerId + " has been accepted and will be processed shortly, it will be sent to this location when it's done " + delText.getText() + " Thank you for choosing us";
->>>>>>> 58c54a2 (no message)
+        msgText = "Your order with IDnumber " + customerId + " has been accepted and will be processed shortly, it will be sent to this location when it's done " + delText.getText() + " Thank you for choosing us";
+
         writer.close();
         String Fin = "Order saved to file: " + filename;
         LOGGER.info(Fin);

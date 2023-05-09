@@ -29,13 +29,8 @@ public class WorkersceneCont {
     private TextField textID;
 
     private String status;
-<<<<<<< HEAD
-    private String AvailableWorker;
-    private String msgText;
-=======
     private String availableWorker;
-    private static String  MsgText;
->>>>>>> 58c54a2 (no message)
+    private static String  msgText;
     @FXML
     public void reloading(ActionEvent event) throws FileNotFoundException {
 
@@ -91,13 +86,8 @@ public class WorkersceneCont {
     @FXML
     public void waiting(ActionEvent event) throws IOException {
         status = "Added";
-<<<<<<< HEAD
-        AvailableWorker = "Unavailable";
-        msgText = "Your order has been added to the system and is waiting for a worker to accept it.\n Your order ID is: " + textID.getText() + "\n Thank you for using our service.\n";
-=======
         availableWorker = "Unavailable";
-        MsgText = "Your order has been added to the system and is waiting for a worker to accept it.\n Your order ID is: " + textID.getText() + "\n Thank you for using our service.\n";
->>>>>>> 58c54a2 (no message)
+        msgText = "Your order has been added to the system and is waiting for a worker to accept it.\n Your order ID is: " + textID.getText() + "\n Thank you for using our service.\n";
         String number = getTextID();
         getName(String.valueOf(number));
         orders();
@@ -113,13 +103,8 @@ public class WorkersceneCont {
     @FXML
     public void complete(ActionEvent event) throws IOException {
         status = "Complete";
-<<<<<<< HEAD
-        AvailableWorker = "Available";
-        msgText = "Your order has been completed.\n Your order ID is: " + textID.getText() + "\n Thank you for using our service.\n";
-=======
         availableWorker = "Available";
-        MsgText = "Your order has been completed.\n Your order ID is: " + textID.getText() + "\n Thank you for using our service.\n";
->>>>>>> 58c54a2 (no message)
+        msgText = "Your order has been completed.\n Your order ID is: " + textID.getText() + "\n Thank you for using our service.\n";
         getName(textID.getText());
         orders();
         availableW();
