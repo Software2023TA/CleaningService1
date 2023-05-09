@@ -29,7 +29,7 @@ public class EmailTest {
         // Write code here that turns the phrase above into concrete actions
         //throw new io.cucumber.java.PendingException();
         WorkersceneCont obj = new WorkersceneCont();
-        assertTrue(obj.getsent());
+        assertEquals(true,obj.getsent());
     }
 
     @When("i click on in treatment button")
