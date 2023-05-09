@@ -34,14 +34,6 @@ public class Scene2Controller {
     @FXML
     private TabPane tabPane;
 
-    @FXML
-    private Tab Maintab;
-
-    @FXML
-    private Tab Shippingtab;
-
-    @FXML
-    private Button NEXTbutton;
 
     String itemname ;
     String itemsize;
@@ -355,7 +347,7 @@ public boolean isclicked =false;
 
     public void onProceedclick() throws IOException {
         saveToTextFile();
-        Scene1Controller s1 = new Scene1Controller();
+
 
 
        String email12 = s1.getEmailAddress(s1.getUsername());
