@@ -18,7 +18,7 @@ public class sendEmail {
     public sendEmail() {
         final String username = "cleaningservicezt2023@gmail.com";
         final String password = "txkjgexkvplmbvgs";
-        String fromEmail = "cleaningservicezt2023@gmail.com";
+        String fromEmail = username;
         String toEmail = "amerkobari22@gmail.com";
 
         Properties properties = new Properties();

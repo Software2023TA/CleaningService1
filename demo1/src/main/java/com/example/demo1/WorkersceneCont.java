@@ -16,7 +16,7 @@ import java.util.Scanner;
 
 public class WorkersceneCont {
 
-    private static boolean sent = false;
+    private boolean sent = false;
     @FXML
     private TextArea textArea;
 
@@ -25,7 +25,7 @@ public class WorkersceneCont {
 
     private String status;
     private String AvailableWorker;
-    private static String  MsgText;
+    private String  MsgText;
     @FXML
     public void Reloading (ActionEvent event) throws FileNotFoundException {
 
@@ -116,9 +116,8 @@ public class WorkersceneCont {
             }
         });
     }
-
-    private static String messageBody;
-    public static String getName(String id) {
+    private String messageBody;
+    public String getName(String id) {
         String name = "";
         sent = false;
         try (Scanner scanner = new Scanner(new File("C:\\Users\\Msys\\Desktop\\Cleaning\\Reports.txt"))) {
