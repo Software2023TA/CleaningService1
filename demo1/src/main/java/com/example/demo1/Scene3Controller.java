@@ -30,8 +30,8 @@ public class Scene3Controller {
     private TextArea textarea1;
     private int totalCash = 0;
     private int numOrders = 0;
-    public boolean CO = false;
-    public boolean CH = false;
+    public boolean co = false;
+    public boolean ch = false;
 
     @FXML
     private TextField firstname;
@@ -72,8 +72,13 @@ public class Scene3Controller {
       clearAllFields();
   }
 
+<<<<<<< HEAD
   public void calculateCash()  {
       CH = true;
+=======
+  public void calculateCash(ActionEvent event) throws IOException {
+      ch = true;
+>>>>>>> 58c54a2 (no message)
     cashfield.setEditable(false);
    try (BufferedReader reader = new BufferedReader(new FileReader(reportFile))) {
     String line;
@@ -86,8 +91,13 @@ public class Scene3Controller {
    }
    cashfield.setText(String.valueOf(totalCash));
   }
+<<<<<<< HEAD
  public void countOrders()  {
       CO = true;
+=======
+ public void countOrders(ActionEvent event) throws IOException {
+      co = true;
+>>>>>>> 58c54a2 (no message)
      salesfield.setEditable(false);
   try (BufferedReader reader = new BufferedReader(new FileReader(reportFile))) {
      String readStored = reader.readLine();
@@ -193,13 +203,11 @@ public class Scene3Controller {
     }
 
     public String getsalesField() {
-      String sales = salesfield.getText();
-      return sales;
+        return salesfield.getText();
     }
 
     public String getcashField() {
-      String cash =cashfield.getText();
-      return cash;
+      return cashfield.getText();
     }
 
     public String getfirstname() {
