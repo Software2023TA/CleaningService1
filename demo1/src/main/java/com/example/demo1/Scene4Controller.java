@@ -10,11 +10,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-
 import javax.swing.*;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Objects;
+
 public class Scene4Controller {
     @FXML
     private PasswordField passwordff;
