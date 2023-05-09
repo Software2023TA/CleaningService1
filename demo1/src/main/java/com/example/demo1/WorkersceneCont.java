@@ -135,7 +135,7 @@ public class WorkersceneCont {
                     String email12 = s1.getEmailAddress(name);
                     String subject = "OrderUpdate";
                     messageBody = MsgText;
-                    sendEmail x = new sendEmail(email12, subject, messageBody);
+                      new EmailSender(email12, subject, messageBody);
                    sent = true;
                 }
 

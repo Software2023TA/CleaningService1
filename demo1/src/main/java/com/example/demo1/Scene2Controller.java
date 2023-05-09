@@ -30,7 +30,7 @@ public class Scene2Controller {
     private String OrderAccepted = "Order Accepted";
     private String MsgText ="null";
     @FXML
-    Label location;
+    Label Location;
     @FXML
     private TabPane tabPane;
 
@@ -238,8 +238,8 @@ public class Scene2Controller {
         if (delText != null) {
             delText.setVisible(true);
         }
-        if (location != null) {
-            location.setVisible(true);
+        if (Location != null) {
+            Location.setVisible(true);
         }
     }
 
@@ -252,8 +252,8 @@ public class Scene2Controller {
         if (delText != null) {
             delText.setVisible(false);
         }
-        if (location != null) {
-            location.setVisible(false);
+        if (Location != null) {
+            Location.setVisible(false);
         }
         readymessage();
     }
@@ -361,7 +361,7 @@ public static boolean isclicked =false;
         LOGGER.info(Filein);
     }
 
-    public void onProceedclick() throws IOException {
+    public void onProceedclick() throws IOException, MyException {
         saveToTextFile();
 
 
@@ -369,7 +369,7 @@ public static boolean isclicked =false;
        String email12 = s1.getEmailAddress(s1.getUsername());
         String subject = OrderAccepted;
         String messageBody = MsgText;
-        sendEmail x = new sendEmail(email12, subject, messageBody);
+        new EmailSender(email12, subject, messageBody);
 
     }
 }

@@ -161,7 +161,7 @@ public class Scene3Controller {
 
 
 
-    public void Reloading (ActionEvent event) throws FileNotFoundException {
+    public void reloading(ActionEvent event) throws FileNotFoundException {
 
         File file = new File("C:\\Users\\MsI\\Desktop\\ProjectSoft\\demo1\\Reports.txt");
         Scanner scanner = new Scanner(file);
@@ -175,8 +175,8 @@ public class Scene3Controller {
 
     }
 
-    public void SendReports(ActionEvent event) throws FileNotFoundException {
-        sendEmail x = new sendEmail();
+    public void sendReports(ActionEvent event) throws MyException {
+        new EmailSender();
     }
     public void clearAllFields() {
         cashfield.setText("");
@@ -220,6 +220,10 @@ public class Scene3Controller {
 
     public String getnumber() {
       return phonefield.getText();
+    }
+
+    public boolean getvalidWorkerInput() {
+      return validWorkerInput;
     }
 }
 
