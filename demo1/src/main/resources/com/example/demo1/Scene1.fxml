@@ -30,7 +30,7 @@
       </GridPane>
       <Button fx:id="login" layoutX="237.0" layoutY="282.0" mnemonicParsing="false" onAction="#login" prefHeight="27.0" prefWidth="158.0" text="Login" />
       <Button layoutX="282.0" layoutY="329.0" mnemonicParsing="false" onAction="#exit" prefHeight="27.0" prefWidth="68.0" text="Exit" />
-      <Button fx:id="NewCustomer" layoutX="505.0" layoutY="368.0" mnemonicParsing="false" onAction="#switchScene4" prefHeight="18.0" prefWidth="82.0" text="New Customer">
+      <Button fx:id="newCustomerButton" layoutX="505.0" layoutY="368.0" mnemonicParsing="false" onAction="#switchScene4" prefHeight="18.0" prefWidth="82.0" text="New Customer">
          <font>
             <Font size="10.0" />
          </font>

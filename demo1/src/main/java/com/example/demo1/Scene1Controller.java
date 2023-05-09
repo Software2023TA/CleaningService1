@@ -20,7 +20,7 @@ import javafx.stage.Window;
 
 public class Scene1Controller {
 
-    boolean Validcred = false;
+    boolean validCredential = false;
     @FXML
     Parent root;
     @FXML
@@ -32,8 +32,8 @@ public class Scene1Controller {
         return root;
     }
     @FXML
-    public void setFieldPass(String Password ) {
-        this.fieldPass.setText(Password);
+    public void setFieldPass(String passwordField) {
+        this.fieldPass.setText(passwordField);
     }
     @FXML
     public PasswordField getFieldPass() {
@@ -50,9 +50,9 @@ public class Scene1Controller {
         return fieldUser.getText();
     }
     @FXML
-    public Button NewCustomer;
+    public Button newCustomerButton;
     @FXML
-    public static boolean Scene4IsOpen = false;
+    public boolean isScene4Open = false;
 
     @FXML
     private static boolean isApplicationClosed = false;
@@ -60,7 +60,7 @@ public class Scene1Controller {
     static String email = null;
 
     @FXML
-    public static String username   = null;
+    public  String username   = null;
 
     @FXML
     public void login(ActionEvent event) throws IOException {
@@ -69,33 +69,33 @@ public class Scene1Controller {
             String password = fieldPass.getText();
             boolean validCredentials = CheckCredentials(username, password, "Untitled.txt");
             if (validCredentials) {
-                setValidcred(true);
+                setValidCredential(true);
                 if (username.startsWith("Worker")) {
-                    switchSceneWorker(event);
+                    switchSceneWorker();
                 } else if (username.equals("Admin")) {
                     switchScene3(event);
                 } else {
                     switchScene2(event);
                 }
             } else {
-                setValidcred(false);
+                setValidCredential(false);
                 ShowErrorMessage();
             }
         } else {
-            setValidcred(false);
+            setValidCredential(false);
         }
     }
 
 
-    public void switchSceneWorker(ActionEvent event) {
+    public void switchSceneWorker() {
         Main.primaryStage.setScene(Main.scene5);
     }
 
-    public void setValidcred(boolean b) {
-        Validcred = b;
+    public void setValidCredential(boolean b) {
+        validCredential = b;
     }
     public boolean getValidCredentials() {
-        return Validcred;
+        return validCredential;
     }
 
     @FXML
@@ -110,7 +110,7 @@ public class Scene1Controller {
     public void switchScene4(ActionEvent event) throws IOException {
         Platform.runLater(() -> {
             Main.primaryStage.setScene(Main.scene4);
-            Scene4IsOpen = true;
+            isScene4Open = true;
         });
     }
 

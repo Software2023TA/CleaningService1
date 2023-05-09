@@ -51,14 +51,16 @@ public class WorkersceneCont {
         String id = textID.getText();
         // Read the contents of the original file
         BufferedWriter writer = new BufferedWriter(new FileWriter(filename, true));
-        writer.write(Scene1Controller.username + "\t" + id + "\t" + status + "\n");        writer.close();
+        Scene1Controller s = new Scene1Controller();
+        writer.write(s.getUsername() + "\t" + id + "\t" + status + "\n");        writer.close();
         System.out.println("Order saved to file: " + filename);
     }
 
     public void AvailableW() throws IOException {
         String filename = "AvailableW.txt";
         BufferedWriter writer = new BufferedWriter(new FileWriter(filename, true));
-        writer.write(Scene1Controller.username + "\t" + AvailableWorker + "\n");
+        Scene1Controller s = new Scene1Controller();
+        writer.write(s.getUsername() + "\t" + AvailableWorker + "\n");
         writer.close();
         System.out.println("Order saved to file: " + filename);
     }
