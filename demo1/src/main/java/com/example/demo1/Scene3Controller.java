@@ -19,7 +19,6 @@ import javax.swing.JOptionPane;
 
 public class Scene3Controller {
 
-    String reportFile = "C:\\Users\\Msys\\Desktop\\Cleaning\\Reports.txt";
     @FXML
     private TextField cashfield;
     @FXML
@@ -30,8 +29,8 @@ public class Scene3Controller {
     private TextArea textarea1;
     private int totalCash = 0;
     private int numOrders = 0;
-    public boolean CO = false;
-    public boolean CH = false;
+    public boolean co = false;
+    public boolean ch = false;
 
     @FXML
     private TextField firstname;
@@ -55,10 +54,10 @@ public class Scene3Controller {
     @FXML
     public Button neworker;
     @FXML
-    public boolean validWorkerInput;
+    public static boolean validWorkerInput;
 
 
-  public void switchScene1(ActionEvent event) throws IOException ,  MyException{
+  public void switchScene1(ActionEvent event) throws IOException {
    Platform.runLater(() -> {
     try {
      Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Scene1.fxml")));
@@ -72,10 +71,10 @@ public class Scene3Controller {
       clearAllFields();
   }
 
-  public void calculateCash()  {
-      CH = true;
+  public void calculateCash(ActionEvent event) throws IOException {
+      ch = true;
     cashfield.setEditable(false);
-   try (BufferedReader reader = new BufferedReader(new FileReader(reportFile))) {
+   try (BufferedReader reader = new BufferedReader(new FileReader("Reports.txt"))) {
     String line;
     while ((line = reader.readLine()) != null) {
      String[] tokens = line.split("\t");
@@ -86,12 +85,11 @@ public class Scene3Controller {
    }
    cashfield.setText(String.valueOf(totalCash));
   }
- public void countOrders()  {
-      CO = true;
+ public void countOrders(ActionEvent event) throws IOException {
+      co = true;
      salesfield.setEditable(false);
-  try (BufferedReader reader = new BufferedReader(new FileReader(reportFile))) {
-     String readStored = reader.readLine();
-   while (readStored != null) {
+  try (BufferedReader reader = new BufferedReader(new FileReader("Reports.txt"))) {
+   while (reader.readLine() != null) {
     numOrders++;
    }
   } catch (IOException e) {
@@ -101,7 +99,7 @@ public class Scene3Controller {
   salesfield.setText(String.valueOf(numOrders));
  }
 
-    public void saveUserData()  {
+    public void saveUserData(ActionEvent event) throws IOException {
         String fname = "";
         String lname = "";
         String username = "";
@@ -126,7 +124,7 @@ public class Scene3Controller {
         }
 
         boolean notEmptyFields = !fname.isEmpty() && !lname.isEmpty() && !username.isEmpty() && !email.isEmpty() && !phone.isEmpty() && !password.isEmpty();
-        boolean isValidUsername = username.matches("^Worker([1-9]|[1-9]\\d|100)$");
+        boolean isValidUsername = username.matches("^Worker([1-9]|[1-9][0-9]|100)$");
         boolean isValidEmail = email.matches("^[\\w-.]+@([\\w-]+\\.)+[\\w-]{2,4}$");
         boolean isValidPhone = phone.matches("^\\d{10}$");
         boolean isValidName = fname.matches("^[A-Za-z]*$") && lname.matches("^[A-Za-z]*$");
@@ -163,20 +161,21 @@ public class Scene3Controller {
 
 
 
-    public void reloading() throws FileNotFoundException {
-        File file = new File(reportFile);
+    public void reloading(ActionEvent event) throws FileNotFoundException {
+
+        File file = new File("C:\\Users\\MsI\\Desktop\\ProjectSoft\\demo1\\Reports.txt");
         Scanner scanner = new Scanner(file);
-        StringBuilder sb = new StringBuilder();
+        String fileContent = "";
         while (scanner.hasNextLine()) {
-            sb.append(scanner.nextLine()).append("\n");
+            fileContent += scanner.nextLine() + "\n";
         }
         scanner.close();
-        String fileContent = sb.toString();
+
         textarea1.setText(fileContent);
+
     }
 
-
-    public void sendReports() throws MyException {
+    public void sendReports(ActionEvent event) throws MyException {
         new EmailSender();
     }
     public void clearAllFields() {
@@ -193,13 +192,11 @@ public class Scene3Controller {
     }
 
     public String getsalesField() {
-      String sales = salesfield.getText();
-      return sales;
+        return salesfield.getText();
     }
 
     public String getcashField() {
-      String cash =cashfield.getText();
-      return cash;
+      return cashfield.getText();
     }
 
     public String getfirstname() {
@@ -226,7 +223,7 @@ public class Scene3Controller {
     }
 
     public boolean getvalidWorkerInput() {
-        return validWorkerInput;
+      return validWorkerInput;
     }
 }
 

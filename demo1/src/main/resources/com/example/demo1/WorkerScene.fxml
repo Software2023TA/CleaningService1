@@ -11,10 +11,10 @@
    <children>
       <TextArea fx:id="textArea" editable="false" layoutX="28.0" layoutY="92.0" prefHeight="282.0" prefWidth="392.0" />
       <Button layoutX="456.0" layoutY="349.0" mnemonicParsing="false" onAction="#switchScene1" prefHeight="26.0" prefWidth="118.0" text="Logout" />
-      <Button layoutX="456.0" layoutY="305.0" mnemonicParsing="false" onAction="#Reloading" prefHeight="26.0" prefWidth="118.0" text="Reload" />
-      <Button layoutX="456.0" layoutY="170.0" mnemonicParsing="false" onAction="#Complete" prefHeight="26.0" prefWidth="118.0" text="Complete" />
-      <Button layoutX="456.0" layoutY="132.0" mnemonicParsing="false" onAction="#In_Treatment" prefHeight="26.0" prefWidth="118.0" text="In Treatment" />
-      <Button layoutX="456.0" layoutY="92.0" mnemonicParsing="false" onAction="#Waiting" prefHeight="26.0" prefWidth="118.0" text="Waiting" />
+      <Button layoutX="456.0" layoutY="305.0" mnemonicParsing="false" onAction="#reloading" prefHeight="26.0" prefWidth="118.0" text="Reload" />
+      <Button layoutX="456.0" layoutY="170.0" mnemonicParsing="false" onAction="#complete" prefHeight="26.0" prefWidth="118.0" text="Complete" />
+      <Button layoutX="456.0" layoutY="132.0" mnemonicParsing="false" onAction="#inTreatment" prefHeight="26.0" prefWidth="118.0" text="In Treatment" />
+      <Button layoutX="456.0" layoutY="92.0" mnemonicParsing="false" onAction="#waiting" prefHeight="26.0" prefWidth="118.0" text="Waiting" />
       <Label layoutX="28.0" layoutY="30.0" prefHeight="18.0" prefWidth="382.0" text="Add The ID To Change The Status">
          <font>
             <Font name="System Bold" size="18.0" />

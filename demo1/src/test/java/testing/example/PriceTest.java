@@ -4,7 +4,6 @@ import com.example.demo1.Scene2Controller;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import javafx.application.Platform;
-import javafx.event.ActionEvent;
 import javafx.scene.control.TextField;
 import java.io.IOException;
 import static org.junit.Assert.*;
@@ -15,7 +14,7 @@ public class PriceTest {
 
     @When("i choose 200x100 size")
     public void i_choose_200x100_size() throws IOException {
-        obj.SizeHandle1();
+        obj.sizeHandle1();
         TextField sizetxt = new TextField();
         sizetxt.setText("you chose 200x100");
 
@@ -27,7 +26,7 @@ public class PriceTest {
     @When("i choose speed cleaning")
     public void i_choose_speed_cleaning() {
         Platform.runLater(() -> {
-            obj.SpeedBH();
+            obj.speedBH();
             Alert alert = obj.alert;
             assertEquals("Speed Cleaning", alert.getTitle());
             assertEquals(null, alert.getHeaderText());
@@ -46,7 +45,7 @@ public class PriceTest {
 
     @When("i choose 200x200 size")
     public void i_choose_200x200_size() {
-        obj.SizeHandle2();
+        obj.sizeHandle2();
         TextField sizetxt = new TextField();
         sizetxt.setText("you chose 200x200");
 
@@ -58,7 +57,7 @@ public class PriceTest {
     @When("i choose deep cleaning")
     public void i_choose_deep_cleaning() {
         Platform.runLater(() -> {
-            obj.SpeedBH();
+            obj.speedBH();
             Alert alert = obj.alert;
             assertEquals("Deep Cleaning", alert.getTitle());
             assertEquals(null, alert.getHeaderText());
@@ -67,7 +66,7 @@ public class PriceTest {
 
     @When("i choose 300x200 size")
     public void i_choose_300x200_size() {
-        obj.SizeHandle3();
+        obj.sizeHandle3();
         TextField sizetxt = new TextField();
         sizetxt.setText("you chose 300x200");
 
@@ -80,7 +79,7 @@ public class PriceTest {
     @When("i choose dry cleaning")
     public void i_choose_dry_cleaning() throws InterruptedException {
         Platform.runLater(() -> {
-            obj.SpeedBH();
+            obj.speedBH();
             Alert alert = obj.alert;
             assertEquals("Dry Cleaning", alert.getTitle());
             assertEquals(null, alert.getHeaderText());

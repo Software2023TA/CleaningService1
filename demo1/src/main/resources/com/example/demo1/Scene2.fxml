@@ -32,9 +32,9 @@
                                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                 </rowConstraints>
                                  <children>
-                                    <Button mnemonicParsing="false" onAction="#SizeHandle1" prefHeight="26.0" prefWidth="166.0" text="200x100" />
-                                    <Button mnemonicParsing="false" onAction="#SizeHandle2" prefHeight="26.0" prefWidth="164.0" text="200x200" GridPane.rowIndex="1" />
-                                    <Button mnemonicParsing="false" onAction="#SizeHandle3" prefHeight="26.0" prefWidth="167.0" text="300x200" GridPane.rowIndex="2" />
+                                    <Button mnemonicParsing="false" onAction="#sizeHandle1" prefHeight="26.0" prefWidth="166.0" text="200x100" />
+                                    <Button mnemonicParsing="false" onAction="#sizeHandle2" prefHeight="26.0" prefWidth="164.0" text="200x200" GridPane.rowIndex="1" />
+                                    <Button mnemonicParsing="false" onAction="#sizeHandle3" prefHeight="26.0" prefWidth="167.0" text="300x200" GridPane.rowIndex="2" />
                                  </children>
                               </GridPane>
                               <GridPane layoutX="398.0" layoutY="159.0" prefHeight="91.0" prefWidth="157.0">
@@ -47,9 +47,9 @@
                                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                  </rowConstraints>
                                  <children>
-                                    <Button mnemonicParsing="false" onAction="#SpeedBH" prefHeight="26.0" prefWidth="166.0" text="Speed Cleaning" />
-                                    <Button mnemonicParsing="false" onAction="#DeepBH" prefHeight="26.0" prefWidth="164.0" text="Deep Cleaning" GridPane.rowIndex="1" />
-                                    <Button mnemonicParsing="false" onAction="#DryBH" prefHeight="26.0" prefWidth="167.0" text="Dry Cleaning" GridPane.rowIndex="2" />
+                                    <Button mnemonicParsing="false" onAction="#speedBH" prefHeight="26.0" prefWidth="166.0" text="Speed Cleaning" />
+                                    <Button mnemonicParsing="false" onAction="#deepBH" prefHeight="26.0" prefWidth="164.0" text="Deep Cleaning" GridPane.rowIndex="1" />
+                                    <Button mnemonicParsing="false" onAction="#dryBH" prefHeight="26.0" prefWidth="167.0" text="Dry Cleaning" GridPane.rowIndex="2" />
                                  </children>
                               </GridPane>
                               <TextField fx:id="sizetxt" editable="false" layoutX="34.0" layoutY="282.0" prefHeight="26.0" prefWidth="158.0" />
@@ -99,8 +99,8 @@
                                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                 </rowConstraints>
                                  <children>
-                                    <Button mnemonicParsing="false" onAction="#DeliveryBH" prefHeight="26.0" prefWidth="114.0" text="Delivery" />
-                                    <Button mnemonicParsing="false" onAction="#PickupBH" prefHeight="26.0" prefWidth="118.0" text="Pickup" GridPane.rowIndex="1" />
+                                    <Button mnemonicParsing="false" onAction="#deliveryBH" prefHeight="26.0" prefWidth="114.0" text="Delivery" />
+                                    <Button mnemonicParsing="false" onAction="#pickupBH" prefHeight="26.0" prefWidth="118.0" text="Pickup" GridPane.rowIndex="1" />
                                  </children>
                               </GridPane>
                               <Label fx:id="Location" layoutX="164.0" layoutY="134.0" text="* Please Write Your Location Bellow" visible="false">
@@ -108,8 +108,8 @@
                                     <Font name="System Bold" size="12.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="DelText" layoutX="202.0" layoutY="269.0" prefHeight="26.0" prefWidth="320.0" promptText="                             City -  Street - Building" visible="false" />
-                              <TextField fx:id="ShippingType" editable="false" layoutX="36.0" layoutY="270.0" promptText="         Shipping Type" />
+                              <TextField fx:id="delText" layoutX="202.0" layoutY="269.0" prefHeight="26.0" prefWidth="320.0" promptText="                             City -  Street - Building" visible="false" />
+                              <TextField fx:id="shippingType" editable="false" layoutX="36.0" layoutY="270.0" promptText="         Shipping Type" />
                               <Button layoutX="470.0" layoutY="227.0" mnemonicParsing="false" onAction="#onProceedclick" prefHeight="26.0" prefWidth="115.0" text="Proceed" />
                            </children>
                         </AnchorPane>

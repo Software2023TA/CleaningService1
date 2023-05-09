@@ -15,7 +15,7 @@ import java.util.logging.Logger;
 
 public class Scene2Controller {
 
-    public Alert alert ;
+    public Alert alert;
     @FXML
     Parent root;
     @FXML
@@ -23,12 +23,12 @@ public class Scene2Controller {
     @FXML
     public TextField itemtxt;
     @FXML
-    public TextField DelText;
+    public TextField delText;
     @FXML
-    public TextField ShippingType;
-    String customerId ="null";
-    private String orderAccepted = "Order Accepted";
-    private String msgText ="null";
+    public TextField shippingType;
+    String CustomerId="null";
+    private String OrderAccepted = "Order Accepted";
+    private String MsgText ="null";
     @FXML
     Label Location;
     @FXML
@@ -38,7 +38,7 @@ public class Scene2Controller {
     String itemname ;
     String itemsize;
     String cleaningtype;
-    int Price;
+    int price;
 
     @FXML
     void initialize(ActionEvent event) {
@@ -63,6 +63,18 @@ public class Scene2Controller {
         });
     }
 
+    public Parent getRoot() {
+        return root;
+    }
+
+
+
+    public void LoggedOutMsg() {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Logged Out");
+        alert.setHeaderText("You are now Logged Out");
+        alert.showAndWait();
+    }
 
     boolean isCarpetSelected = false;
 
@@ -72,16 +84,24 @@ public class Scene2Controller {
             itemtxt.setText("Carpet");
         }
     }
-    public boolean isCover =false;
+    private static boolean iscover =false;
+
+    public void setIscover(boolean iscover) {
+        this.iscover = iscover;
+    }
+    public boolean getIscover(){
+        return iscover;
+    }
+
     public void cover() {
-        isCover =true;
+        setIscover(true);
         itemname = "cover";
         if (itemtxt != null) {
             itemtxt.setText("Cover");
         }
     }
 
-    public void SizeHandle1() throws IOException {
+    public void sizeHandle1() throws IOException {
         if (sizetxt != null) {
             sizetxt.setText("200x100");
             itemsize = "200x100";
@@ -89,12 +109,12 @@ public class Scene2Controller {
         int i = 280;
         Scene2Controller.setprice(i);
     }
-    static int PRC;
+    static int prc;
     private static void setprice(int i) {
-        PRC = i;
+        prc = i;
     }
 
-    public void SizeHandle2() {
+    public void sizeHandle2() {
         if (sizetxt != null) {
             sizetxt.setText("200x200");
             itemsize = "200x200";
@@ -103,7 +123,7 @@ public class Scene2Controller {
         Scene2Controller.setprice(i);
     }
 
-    public void SizeHandle3() {
+    public void sizeHandle3() {
         if (sizetxt != null) {
             sizetxt.setText("300x200");
             itemsize = "300x200";
@@ -114,7 +134,7 @@ public class Scene2Controller {
         int res;
         String con1="You got 10% discount\nAnd the final Price is: ";
         String con2="The Price: ";
-    public void SpeedBH() {
+    public void speedBH() {
 
         Platform.runLater(() -> {
             Alert alr = new Alert(Alert.AlertType.INFORMATION);
@@ -124,16 +144,16 @@ public class Scene2Controller {
             int dis = (int) (res * 0.1);
             if (res > 400){
                 res -= dis;
-                if (isCover){
+                if (getIscover()){
                     res = res - 40;
                     alr.setContentText(con1+ res);
-                    isCover =false;
+                    setIscover(false);
                 }
                 else {
                     alr.setContentText(con1+ res);
                 }
             }else{
-                if (isCover) {
+                if (getIscover()) {
                     res = res - 40;
                     alr.setContentText(con2 + res);
                 }else{
@@ -148,10 +168,10 @@ public class Scene2Controller {
     }
 
     public int getprice() {
-        return PRC;
+        return prc;
     }
 
-    public void DryBH() {
+    public void dryBH() {
         Platform.runLater(() -> {
             Alert alr = new Alert(Alert.AlertType.INFORMATION);
             alr.setTitle("Dry Cleaning");
@@ -160,16 +180,16 @@ public class Scene2Controller {
             int dis = (int) (res * 0.1);
             if (res > 400){
                 res -= dis;
-                if (isCover){
+                if (getIscover()){
                     res = res - 40;
                     alr.setContentText(con1 + res);
-                    isCover =false;
+                    setIscover(false);
                 }
                 else {
                     alr.setContentText(con1 + res);
                 }
             }else{
-                if (isCover) {
+                if (getIscover()) {
                     res = res - 40;
                     alr.setContentText(con2 + res);
                 }else{
@@ -182,7 +202,7 @@ public class Scene2Controller {
         cleaningtype = "Dry Cleaning";
     }
 
-    public void DeepBH() {
+    public void deepBH() {
         Platform.runLater(() -> {
             Alert alr = new Alert(Alert.AlertType.INFORMATION);
             alr.setTitle("Deep Cleaning");
@@ -191,16 +211,16 @@ public class Scene2Controller {
             int dis = (int) (res * 0.1);
             if (res > 400){
                 res -= dis;
-                if (isCover){
+                if (getIscover()){
                     res = res - 40;
                     alr.setContentText(con1 + res);
-                    isCover =false;
+                    setIscover(false);
                 }
                 else {
                     alr.setContentText(con1 + res);
                 }
             }else{
-                if (isCover) {
+                if (getIscover()) {
                     res = res - 40;
                     alr.setContentText(con2 + res);
                 }else{
@@ -214,9 +234,9 @@ public class Scene2Controller {
         cleaningtype = "Deep Cleaning";
     }
 
-    public void LocatioHandle() throws IOException{
-        if (DelText != null) {
-            DelText.setVisible(true);
+    public void locatioHandle() throws IOException{
+        if (delText != null) {
+            delText.setVisible(true);
         }
         if (Location != null) {
             Location.setVisible(true);
@@ -225,29 +245,35 @@ public class Scene2Controller {
 
 
 
-    public void PickupBH() throws  IOException {
-        if (ShippingType != null) {
-            ShippingType.setText("Pickup");
+    public void pickupBH() throws  IOException {
+        if (shippingType != null) {
+            shippingType.setText("Pickup");
         }
-        if (DelText != null) {
-            DelText.setVisible(false);
+        if (delText != null) {
+            delText.setVisible(false);
         }
         if (Location != null) {
             Location.setVisible(false);
         }
-        Readymessage();
+        readymessage();
     }
-public boolean isclicked =false;
-    public void DeliveryBH() throws IOException {
-        isclicked=true;
-        if (ShippingType != null) {
-            ShippingType.setText("Delivery");
+public static boolean isclicked =false;
+    public void setIsclicked(boolean isclicked) {
+        this.isclicked = isclicked;
+    }
+    public boolean getIsclicked(){
+        return isclicked;
+    }
+    public void deliveryBH() throws IOException {
+        setIsclicked(true);
+        if (shippingType != null) {
+            shippingType.setText("Delivery");
         }
-        LocatioHandle();
+        locatioHandle();
     }
 
 
-    public void Readymessage() {
+    public void readymessage() {
 
         Platform.runLater(() -> {
             Alert alr = new Alert(Alert.AlertType.INFORMATION);
@@ -264,7 +290,7 @@ public boolean isclicked =false;
     Scene1Controller s1 = new Scene1Controller();
     public void saveToTextFile() {
         String filename = "Reports.txt";
-        if (isclicked) {
+        if (getIsclicked()) {
             try {
                 BufferedReader reader = new BufferedReader(new FileReader(filename));
                 String lastLine = "";
@@ -282,7 +308,7 @@ public boolean isclicked =false;
                     String lastId = parts[0];
                     counter = Integer.parseInt(lastId) + 1;
                 }
-                Bwr(filename);
+                bwr(filename);
 
             } catch (IOException e) {
                 e.printStackTrace();
@@ -305,7 +331,7 @@ public boolean isclicked =false;
                     String lastId = parts[0];
                     counter = Integer.parseInt(lastId) + 1;
                 }
-                Bwrr(filename);
+                bwrr(filename);
 
             } catch (IOException e) {
                 e.printStackTrace();
@@ -313,34 +339,36 @@ public boolean isclicked =false;
         }
     }
 
-    private void Bwr(String filename) throws IOException {
+    private void bwr(String filename) throws IOException {
         BufferedWriter writer = new BufferedWriter(new FileWriter(filename, true));
-        customerId = String.format("%03d", counter);
-        writer.write(customerId + "\t" + s1.getUsername() + "\t" + DelText.getText() + "\t" + itemname + "\t" + itemsize + "\t" + cleaningtype + "\t" + Price + "\n");
+        CustomerId = String.format("%03d", counter);
+        writer.write(CustomerId + "\t" + s1.getUsername() + "\t" + delText.getText() + "\t" + itemname + "\t" + itemsize + "\t" + cleaningtype + "\t" + price + "\n");
         counter++;
-        msgText = "Your order with IDnumber " + customerId + " has been accepted and will be processed shortly, it will be sent to this location when it's done " + DelText.getText() + " Thank you for choosing us";
+        MsgText = "Your order with IDnumber " + CustomerId + " has been accepted and will be processed shortly, it will be sent to this location when it's done " + delText.getText() + " Thank you for choosing us";
         writer.close();
-        LOGGER.info("Order saved to file: " + filename);
+        String Fin = "Order saved to file: " + filename;
+        LOGGER.info(Fin);
     }
     private static final Logger LOGGER = Logger.getLogger(Scene2Controller.class.getName());
-    private void Bwrr(String filename) throws IOException {
+    private void bwrr(String filename) throws IOException {
         BufferedWriter writer = new BufferedWriter(new FileWriter(filename, true));
-        customerId = String.format("%03d", counter);
-        writer.write(customerId + "\t" + s1.getUsername() + "\t" + "" +  "\t" + itemname + "\t" + itemsize + "\t" + cleaningtype + "\t" + res + "\n");
+        CustomerId = String.format("%03d", counter);
+        writer.write(CustomerId + "\t" + s1.getUsername() + "\t" + "" +  "\t" + itemname + "\t" + itemsize + "\t" + cleaningtype + "\t" + res + "\n");
         counter++;
-        msgText = "Your order with IDnumber " + customerId + " has been accepted and will be processed shortly, We will send you an email when it's ready to pickup, Thank you for choosing us";
+        MsgText = "Your order with IDnumber " + CustomerId + " has been accepted and will be processed shortly, We will send you an email when it's ready to pickup, Thank you for choosing us";
         writer.close();
-        LOGGER.info("Order saved to file: " + filename);
+        String Filein = "Order saved to file: " + filename;
+        LOGGER.info(Filein);
     }
 
-    public void onProceedclick() throws IOException {
+    public void onProceedclick() throws IOException, MyException {
         saveToTextFile();
 
 
 
        String email12 = s1.getEmailAddress(s1.getUsername());
-        String subject = orderAccepted;
-        String messageBody = msgText;
+        String subject = OrderAccepted;
+        String messageBody = MsgText;
         new EmailSender(email12, subject, messageBody);
 
     }
