@@ -15,7 +15,7 @@ public class PriceTest {
 
     @When("i choose 200x100 size")
     public void i_choose_200x100_size() throws IOException {
-        obj.SizeHandle1(new ActionEvent());
+        obj.SizeHandle1();
         TextField sizetxt = new TextField();
         sizetxt.setText("you chose 200x100");
 
@@ -27,7 +27,7 @@ public class PriceTest {
     @When("i choose speed cleaning")
     public void i_choose_speed_cleaning() {
         Platform.runLater(() -> {
-            obj.SpeedBH(new ActionEvent());
+            obj.SpeedBH();
             Alert alert = obj.alert;
             assertEquals("Speed Cleaning", alert.getTitle());
             assertEquals(null, alert.getHeaderText());
@@ -46,7 +46,7 @@ public class PriceTest {
 
     @When("i choose 200x200 size")
     public void i_choose_200x200_size() {
-        obj.SizeHandle2(new ActionEvent());
+        obj.SizeHandle2();
         TextField sizetxt = new TextField();
         sizetxt.setText("you chose 200x200");
 
@@ -58,7 +58,7 @@ public class PriceTest {
     @When("i choose deep cleaning")
     public void i_choose_deep_cleaning() {
         Platform.runLater(() -> {
-            obj.SpeedBH(new ActionEvent());
+            obj.SpeedBH();
             Alert alert = obj.alert;
             assertEquals("Deep Cleaning", alert.getTitle());
             assertEquals(null, alert.getHeaderText());
@@ -67,7 +67,7 @@ public class PriceTest {
 
     @When("i choose 300x200 size")
     public void i_choose_300x200_size() {
-        obj.SizeHandle3(new ActionEvent());
+        obj.SizeHandle3();
         TextField sizetxt = new TextField();
         sizetxt.setText("you chose 300x200");
 
@@ -80,7 +80,7 @@ public class PriceTest {
     @When("i choose dry cleaning")
     public void i_choose_dry_cleaning() throws InterruptedException {
         Platform.runLater(() -> {
-            obj.SpeedBH(new ActionEvent());
+            obj.SpeedBH();
             Alert alert = obj.alert;
             assertEquals("Dry Cleaning", alert.getTitle());
             assertEquals(null, alert.getHeaderText());
