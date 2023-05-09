@@ -30,8 +30,8 @@ public class Scene3Controller {
     private TextArea textarea1;
     private int totalCash = 0;
     private int numOrders = 0;
-    public boolean CO = false;
-    public boolean CH = false;
+    public boolean co = false;
+    public boolean ch = false;
 
     @FXML
     private TextField firstname;

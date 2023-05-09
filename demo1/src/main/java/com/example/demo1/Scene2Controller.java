@@ -26,9 +26,9 @@ public class Scene2Controller {
     public TextField delText;
     @FXML
     public TextField shippingType;
-    String customerId ="null";
-    private String orderAccepted = "Order Accepted";
-    private String msgText ="null";
+    String CustomerId="null";
+    private String OrderAccepted = "Order Accepted";
+    private String MsgText ="null";
     @FXML
     Label location;
     @FXML
@@ -63,6 +63,18 @@ public class Scene2Controller {
         });
     }
 
+    public Parent getRoot() {
+        return root;
+    }
+
+
+
+    public void LoggedOutMsg() {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Logged Out");
+        alert.setHeaderText("You are now Logged Out");
+        alert.showAndWait();
+    }
 
     boolean isCarpetSelected = false;
 
@@ -132,16 +144,16 @@ public class Scene2Controller {
             int dis = (int) (res * 0.1);
             if (res > 400){
                 res -= dis;
-                if (iscover){
+                if (getIscover()){
                     res = res - 40;
                     alr.setContentText(con1+ res);
-                    iscover=false;
+                    setIscover(false);
                 }
                 else {
                     alr.setContentText(con1+ res);
                 }
             }else{
-                if (iscover) {
+                if (getIscover()) {
                     res = res - 40;
                     alr.setContentText(con2 + res);
                 }else{
@@ -168,16 +180,16 @@ public class Scene2Controller {
             int dis = (int) (res * 0.1);
             if (res > 400){
                 res -= dis;
-                if (iscover){
+                if (getIscover()){
                     res = res - 40;
                     alr.setContentText(con1 + res);
-                    iscover=false;
+                    setIscover(false);
                 }
                 else {
                     alr.setContentText(con1 + res);
                 }
             }else{
-                if (iscover) {
+                if (getIscover()) {
                     res = res - 40;
                     alr.setContentText(con2 + res);
                 }else{
@@ -199,16 +211,16 @@ public class Scene2Controller {
             int dis = (int) (res * 0.1);
             if (res > 400){
                 res -= dis;
-                if (iscover){
+                if (getIscover()){
                     res = res - 40;
                     alr.setContentText(con1 + res);
-                    iscover=false;
+                    setIscover(false);
                 }
                 else {
                     alr.setContentText(con1 + res);
                 }
             }else{
-                if (iscover) {
+                if (getIscover()) {
                     res = res - 40;
                     alr.setContentText(con2 + res);
                 }else{

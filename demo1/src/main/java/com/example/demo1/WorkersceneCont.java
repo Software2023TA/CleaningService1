@@ -115,6 +115,7 @@ public class WorkersceneCont {
             try {
                 Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Scene1.fxml")));
                 Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                //stage.setScene(new Scene(root));
                 stage.setScene(Main.scene1);
 
             } catch (IOException e) {

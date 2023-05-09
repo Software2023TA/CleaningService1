@@ -103,7 +103,7 @@
                                     <Button mnemonicParsing="false" onAction="#pickupBH" prefHeight="26.0" prefWidth="118.0" text="Pickup" GridPane.rowIndex="1" />
                                  </children>
                               </GridPane>
-                              <Label fx:id="location" layoutX="164.0" layoutY="134.0" text="* Please Write Your Location Bellow" visible="false">
+                              <Label fx:id="Location" layoutX="164.0" layoutY="134.0" text="* Please Write Your Location Bellow" visible="false">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
