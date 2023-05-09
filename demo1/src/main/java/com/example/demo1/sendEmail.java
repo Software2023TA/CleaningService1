@@ -32,7 +32,7 @@ public class sendEmail {
                 return new PasswordAuthentication(username, password);
             }
         });
-        //Start our mail message
+
         MimeMessage msg = new MimeMessage(session);
         try {
             msg.setFrom(new InternetAddress(fromEmail));
@@ -40,18 +40,19 @@ public class sendEmail {
             msg.setSubject("Cleaning Service Rerports");
 
             Multipart emailContent = new MimeMultipart();
-            //Text body part
+
             MimeBodyPart textBodyPart = new MimeBodyPart();
             textBodyPart.setText("Cleaning Service Rerports for the month of April 2021");
 
-            //Attachment body part.
+
             MimeBodyPart pdfAttachment = new MimeBodyPart();
+
             pdfAttachment.attachFile("C:\\Users\\MsI\\Desktop\\ProjectSoft\\demo1\\Reports.txt");
-            //Attach body parts
+
             emailContent.addBodyPart(textBodyPart);
             emailContent.addBodyPart(pdfAttachment);
 
-            //Attach multipart to message
+
             msg.setContent(emailContent);
 
             Transport.send(msg);
@@ -79,7 +80,7 @@ public class sendEmail {
                 return new PasswordAuthentication(username, password);
             }
         });
-        //Start our mail message
+
         MimeMessage msg = new MimeMessage(session);
         try {
             msg.setFrom(new InternetAddress(fromEmail));

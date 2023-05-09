@@ -105,7 +105,6 @@ public class Main extends Application {
                 }
             }
         } catch (IOException e) {
-            // handle exception
         }
         return true;
     }

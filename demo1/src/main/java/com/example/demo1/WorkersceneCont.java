@@ -49,7 +49,6 @@ public class WorkersceneCont {
     public void Orders() throws IOException {
         String filename = "Order.txt";
         String id = textID.getText();
-        // Read the contents of the original file
         BufferedWriter writer = new BufferedWriter(new FileWriter(filename, true));
         Scene1Controller s = new Scene1Controller();
         writer.write(s.getUsername() + "\t" + id + "\t" + status + "\n");        writer.close();
@@ -110,7 +109,6 @@ public class WorkersceneCont {
             try {
                 Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Scene1.fxml")));
                 Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                //stage.setScene(new Scene(root));
                 stage.setScene(Main.scene1);
 
             } catch (IOException e) {
@@ -123,7 +121,7 @@ public class WorkersceneCont {
     public static String getName(String id) {
         String name = "";
         sent = false;
-        try (Scanner scanner = new Scanner(new File("C:\\Users\\Msys\\Desktop\\CleaningSrv\\Reports.txt"))) {
+        try (Scanner scanner = new Scanner(new File("C:\\Users\\Msys\\Desktop\\Cleaning\\Reports.txt"))) {
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
                 String[] fields = line.split("\t");
