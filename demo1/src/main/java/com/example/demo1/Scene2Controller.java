@@ -11,6 +11,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.io.*;
 import java.util.Objects;
+import java.util.logging.Logger;
 
 public class Scene2Controller {
 
@@ -60,7 +61,7 @@ public class Scene2Controller {
     public void switchScene1(ActionEvent event) throws IOException {
         Platform.runLater(() -> {
             try {
-                Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Scene1.fxml")));
+                Parent Root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Scene1.fxml")));
                 Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 stage.setScene(Main.scene1);
 
@@ -89,7 +90,6 @@ public class Scene2Controller {
         itemname = "carpet";
         if (itemtxt != null) {
             itemtxt.setText("Carpet");
-        } else {
         }
     }
     public boolean iscover =false;
@@ -98,15 +98,13 @@ public class Scene2Controller {
         itemname = "cover";
         if (itemtxt != null) {
             itemtxt.setText("Cover");
-        } else {
         }
     }
 
-    public void SizeHandle1(ActionEvent event) throws IOException {
+    public void SizeHandle1() throws IOException {
         if (sizetxt != null) {
             sizetxt.setText("200x100");
             itemsize = "200x100";
-        } else {
         }
         int i = 280;
         Scene2Controller.setprice(i);
@@ -116,55 +114,55 @@ public class Scene2Controller {
         PRC = i;
     }
 
-    public void SizeHandle2(ActionEvent event) {
+    public void SizeHandle2() {
         if (sizetxt != null) {
             sizetxt.setText("200x200");
             itemsize = "200x200";
-        } else {
         }
         int i = 300;
         Scene2Controller.setprice(i);
     }
 
-    public void SizeHandle3(ActionEvent event) {
+    public void SizeHandle3() {
         if (sizetxt != null) {
             sizetxt.setText("300x200");
             itemsize = "300x200";
-        } else {
         }
         int i = 350;
         Scene2Controller.setprice(i);
     }
         int res;
-    public void SpeedBH(ActionEvent event) {
+        String con1="You got 10% discount\nAnd the final Price is: ";
+        String con2="The Price: ";
+    public void SpeedBH() {
 
         Platform.runLater(() -> {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Speed Cleaning");
-            alert.setHeaderText(null);
+            Alert alr = new Alert(Alert.AlertType.INFORMATION);
+            alr.setTitle("Speed Cleaning");
+            alr.setHeaderText(null);
             res = getprice() + 80;
             int dis = (int) (res * 0.1);
             if (res > 400){
                 res -= dis;
                 if (iscover){
                     res = res - 40;
-                    alert.setContentText("You got 10% discount\nAnd the final Price is: " + res);
+                    alr.setContentText(con1+ res);
                     iscover=false;
                 }
                 else {
-                    alert.setContentText("You got 10% discount\nAnd the final Price is: " + res);
+                    alr.setContentText(con1+ res);
                 }
             }else{
                 if (iscover) {
                     res = res - 40;
-                    alert.setContentText("The Price: " + res);
+                    alr.setContentText(con2 + res);
                 }else{
-                    alert.setContentText("The Price: " + res);
+                    alr.setContentText(con2 + res);
 
                 }
             }
-            alert.showAndWait();
-            this.alert = alert;
+            alr.showAndWait();
+            this.alert = alr;
         });
         cleaningtype = "Speed Cleaning";
     }
@@ -173,70 +171,70 @@ public class Scene2Controller {
         return PRC;
     }
 
-    public void DryBH(ActionEvent event) {
+    public void DryBH() {
         Platform.runLater(() -> {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Dry Cleaning");
-            alert.setHeaderText(null);
+            Alert alr = new Alert(Alert.AlertType.INFORMATION);
+            alr.setTitle("Dry Cleaning");
+            alr.setHeaderText(null);
             res = getprice() + 120;
             int dis = (int) (res * 0.1);
             if (res > 400){
                 res -= dis;
                 if (iscover){
                     res = res - 40;
-                    alert.setContentText("You got 10% discount\nAnd the final Price is: " + res);
+                    alr.setContentText(con1 + res);
                     iscover=false;
                 }
                 else {
-                    alert.setContentText("You got 10% discount\nAnd the final Price is: " + res);
+                    alr.setContentText(con1 + res);
                 }
             }else{
                 if (iscover) {
                     res = res - 40;
-                    alert.setContentText("The Price: " + res);
+                    alr.setContentText(con2 + res);
                 }else{
-                    alert.setContentText("The Price: " + res);
+                    alr.setContentText(con2 + res);
 
                 }
             }
-            alert.showAndWait();
+            alr.showAndWait();
         });
         cleaningtype = "Dry Cleaning";
     }
 
-    public void DeepBH(ActionEvent event) {
+    public void DeepBH() {
         Platform.runLater(() -> {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Deep Cleaning");
-            alert.setHeaderText(null);
+            Alert alr = new Alert(Alert.AlertType.INFORMATION);
+            alr.setTitle("Deep Cleaning");
+            alr.setHeaderText(null);
             res = getprice() + 110;
             int dis = (int) (res * 0.1);
             if (res > 400){
                 res -= dis;
                 if (iscover){
                     res = res - 40;
-                    alert.setContentText("You got 10% discount\nAnd the final Price is: " + res);
+                    alr.setContentText(con1 + res);
                     iscover=false;
                 }
                 else {
-                    alert.setContentText("You got 10% discount\nAnd the final Price is: " + res);
+                    alr.setContentText(con1 + res);
                 }
             }else{
                 if (iscover) {
                     res = res - 40;
-                    alert.setContentText("The Price: " + res);
+                    alr.setContentText(con2 + res);
                 }else{
-                    alert.setContentText("The Price: " + res);
+                    alr.setContentText(con2 + res);
 
                 }
             }
-            alert.showAndWait();
+            alr.showAndWait();
 
         });
         cleaningtype = "Deep Cleaning";
     }
 
-    public void LocatioHandle(ActionEvent event) throws IOException{
+    public void LocatioHandle() throws IOException{
         if (DelText != null) {
             DelText.setVisible(true);
         }
@@ -247,7 +245,7 @@ public class Scene2Controller {
 
 
 
-    public void PickupBH(ActionEvent event) throws  IOException {
+    public void PickupBH() throws  IOException {
         if (ShippingType != null) {
             ShippingType.setText("Pickup");
         }
@@ -260,23 +258,23 @@ public class Scene2Controller {
         Readymessage();
     }
 public boolean isclicked =false;
-    public void DeliveryBH(ActionEvent event) throws IOException {
+    public void DeliveryBH() throws IOException {
         isclicked=true;
         if (ShippingType != null) {
             ShippingType.setText("Delivery");
         }
-        LocatioHandle(new ActionEvent());
+        LocatioHandle();
     }
 
 
     public void Readymessage() {
 
         Platform.runLater(() -> {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Notification...");
-            alert.setHeaderText(null);
-            alert.setContentText("You will Receive A Message When It's Ready");
-            alert.showAndWait();
+            Alert alr = new Alert(Alert.AlertType.INFORMATION);
+            alr.setTitle("Notification...");
+            alr.setHeaderText(null);
+            alr.setContentText("You will Receive A Message When It's Ready");
+            alr.showAndWait();
 
         });
 
@@ -304,14 +302,8 @@ public boolean isclicked =false;
                     String lastId = parts[0];
                     counter = Integer.parseInt(lastId) + 1;
                 }
-                BufferedWriter writer = new BufferedWriter(new FileWriter(filename, true));
-                CustomerId = String.format("%03d", counter);
-                Scene1Controller s = new Scene1Controller();
-                writer.write(CustomerId + "\t" + s.getUsername() + "\t" + DelText.getText() + "\t" + itemname + "\t" + itemsize + "\t" + cleaningtype + "\t" + Price + "\n");
-                counter++;
-                MsgText = "Your order with IDnumber " + CustomerId + " has been accepted and will be processed shortly, it will be sent to this location when it's done " + DelText.getText() + " Thank you for choosing us";
-                writer.close();
-                System.out.println("Order saved to file: " + filename);
+                Bwr(filename);
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -333,18 +325,32 @@ public boolean isclicked =false;
                     String lastId = parts[0];
                     counter = Integer.parseInt(lastId) + 1;
                 }
-                BufferedWriter writer = new BufferedWriter(new FileWriter(filename, true));
-                CustomerId = String.format("%03d", counter);
-                Scene1Controller s = new Scene1Controller();
-                writer.write(CustomerId + "\t" + s.getUsername() + "\t" + "" +  "\t" + itemname + "\t" + itemsize + "\t" + cleaningtype + "\t" + res + "\n");
-                counter++;
-                MsgText = "Your order with IDnumber " + CustomerId + " has been accepted and will be processed shortly, We will send you an email when it's ready to pickup, Thank you for choosing us";
-                writer.close();
-                System.out.println("Order saved to file: " + filename);
+                Bwrr(filename);
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
+    }
+
+    private void Bwr(String filename) throws IOException {
+        BufferedWriter writer = new BufferedWriter(new FileWriter(filename, true));
+        CustomerId = String.format("%03d", counter);
+        writer.write(CustomerId + "\t" + Scene1Controller.username + "\t" + DelText.getText() + "\t" + itemname + "\t" + itemsize + "\t" + cleaningtype + "\t" + Price + "\n");
+        counter++;
+        MsgText = "Your order with IDnumber " + CustomerId + " has been accepted and will be processed shortly, it will be sent to this location when it's done " + DelText.getText() + " Thank you for choosing us";
+        writer.close();
+        LOGGER.info("Order saved to file: " + filename);
+    }
+    private static final Logger LOGGER = Logger.getLogger(Scene2Controller.class.getName());
+    private void Bwrr(String filename) throws IOException {
+        BufferedWriter writer = new BufferedWriter(new FileWriter(filename, true));
+        CustomerId = String.format("%03d", counter);
+        writer.write(CustomerId + "\t" + Scene1Controller.username + "\t" + "" +  "\t" + itemname + "\t" + itemsize + "\t" + cleaningtype + "\t" + res + "\n");
+        counter++;
+        MsgText = "Your order with IDnumber " + CustomerId + " has been accepted and will be processed shortly, We will send you an email when it's ready to pickup, Thank you for choosing us";
+        writer.close();
+        LOGGER.info("Order saved to file: " + filename);
     }
 
     public void onProceedclick() throws IOException {
@@ -352,7 +358,7 @@ public boolean isclicked =false;
         Scene1Controller s1 = new Scene1Controller();
 
 
-       String email12 = s1.getEmailAddress(s1.getUsername());
+       String email12 = s1.getEmailAddress(Scene1Controller.username);
         String subject = OrderAccepted;
         String messageBody = MsgText;
         sendEmail x = new sendEmail(email12, subject, messageBody);
