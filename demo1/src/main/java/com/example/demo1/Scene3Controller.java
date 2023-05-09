@@ -19,6 +19,7 @@ import javax.swing.JOptionPane;
 
 public class Scene3Controller {
 
+    String reportFile = "C:\\Users\\Msys\\Desktop\\Cleaning\\Reports.txt";
     @FXML
     private TextField cashfield;
     @FXML
@@ -54,10 +55,10 @@ public class Scene3Controller {
     @FXML
     public Button neworker;
     @FXML
-    public static boolean validWorkerInput;
+    public boolean validWorkerInput;
 
 
-  public void switchScene1(ActionEvent event) throws IOException {
+  public void switchScene1(ActionEvent event) throws IOException ,  MyException{
    Platform.runLater(() -> {
     try {
      Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Scene1.fxml")));
@@ -71,10 +72,10 @@ public class Scene3Controller {
       clearAllFields();
   }
 
-  public void calculateCash(ActionEvent event) throws IOException {
+  public void calculateCash()  {
       CH = true;
     cashfield.setEditable(false);
-   try (BufferedReader reader = new BufferedReader(new FileReader("Reports.txt"))) {
+   try (BufferedReader reader = new BufferedReader(new FileReader(reportFile))) {
     String line;
     while ((line = reader.readLine()) != null) {
      String[] tokens = line.split("\t");
@@ -85,11 +86,12 @@ public class Scene3Controller {
    }
    cashfield.setText(String.valueOf(totalCash));
   }
- public void countOrders(ActionEvent event) throws IOException {
+ public void countOrders()  {
       CO = true;
      salesfield.setEditable(false);
-  try (BufferedReader reader = new BufferedReader(new FileReader("Reports.txt"))) {
-   while (reader.readLine() != null) {
+  try (BufferedReader reader = new BufferedReader(new FileReader(reportFile))) {
+     String readStored = reader.readLine();
+   while (readStored != null) {
     numOrders++;
    }
   } catch (IOException e) {
@@ -99,7 +101,7 @@ public class Scene3Controller {
   salesfield.setText(String.valueOf(numOrders));
  }
 
-    public void saveUserData(ActionEvent event) throws IOException {
+    public void saveUserData()  {
         String fname = "";
         String lname = "";
         String username = "";
@@ -124,7 +126,7 @@ public class Scene3Controller {
         }
 
         boolean notEmptyFields = !fname.isEmpty() && !lname.isEmpty() && !username.isEmpty() && !email.isEmpty() && !phone.isEmpty() && !password.isEmpty();
-        boolean isValidUsername = username.matches("^Worker([1-9]|[1-9][0-9]|100)$");
+        boolean isValidUsername = username.matches("^Worker([1-9]|[1-9]\\d|100)$");
         boolean isValidEmail = email.matches("^[\\w-.]+@([\\w-]+\\.)+[\\w-]{2,4}$");
         boolean isValidPhone = phone.matches("^\\d{10}$");
         boolean isValidName = fname.matches("^[A-Za-z]*$") && lname.matches("^[A-Za-z]*$");
@@ -161,23 +163,21 @@ public class Scene3Controller {
 
 
 
-    public void Reloading (ActionEvent event) throws FileNotFoundException {
-
-        File file = new File("C:\\Users\\MsI\\Desktop\\ProjectSoft\\demo1\\Reports.txt");
-
+    public void reloading() throws FileNotFoundException {
+        File file = new File(reportFile);
         Scanner scanner = new Scanner(file);
-        String fileContent = "";
+        StringBuilder sb = new StringBuilder();
         while (scanner.hasNextLine()) {
-            fileContent += scanner.nextLine() + "\n";
+            sb.append(scanner.nextLine()).append("\n");
         }
         scanner.close();
-
+        String fileContent = sb.toString();
         textarea1.setText(fileContent);
-
     }
 
-    public void SendReports(ActionEvent event) throws FileNotFoundException {
-        sendEmail x = new sendEmail();
+
+    public void sendReports() throws MyException {
+        new EmailSender();
     }
     public void clearAllFields() {
         cashfield.setText("");
@@ -223,6 +223,10 @@ public class Scene3Controller {
 
     public String getnumber() {
       return phonefield.getText();
+    }
+
+    public boolean getvalidWorkerInput() {
+        return validWorkerInput;
     }
 }
 

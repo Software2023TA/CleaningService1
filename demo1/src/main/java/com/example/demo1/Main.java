@@ -88,7 +88,7 @@ public class Main extends Application {
         }
     }
 
-    public static boolean isApplicationClosed(String applicationName) {
+    public static boolean isApplicationClosed(String applicationName) throws MyException {
         Process process;
         try {
             if (System.getProperty("os.name").toLowerCase().contains("windows")) {
@@ -105,6 +105,8 @@ public class Main extends Application {
                 }
             }
         } catch (IOException e) {
+            throw new MyException(e);
+
         }
         return true;
     }

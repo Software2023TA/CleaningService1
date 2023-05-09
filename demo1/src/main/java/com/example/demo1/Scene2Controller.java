@@ -26,9 +26,9 @@ public class Scene2Controller {
     public TextField DelText;
     @FXML
     public TextField ShippingType;
-    String CustomerId="null";
-    private String OrderAccepted = "Order Accepted";
-    private String MsgText ="null";
+    String customerId ="null";
+    private String orderAccepted = "Order Accepted";
+    private String msgText ="null";
     @FXML
     Label Location;
     @FXML
@@ -53,7 +53,7 @@ public class Scene2Controller {
     public void switchScene1(ActionEvent event) throws IOException {
         Platform.runLater(() -> {
             try {
-                Parent Root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Scene1.fxml")));
+                Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Scene1.fxml")));
                 Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 stage.setScene(Main.scene1);
 
@@ -63,18 +63,6 @@ public class Scene2Controller {
         });
     }
 
-    public Parent getRoot() {
-        return root;
-    }
-
-
-
-    public void LoggedOutMsg() {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Logged Out");
-        alert.setHeaderText("You are now Logged Out");
-        alert.showAndWait();
-    }
 
     boolean isCarpetSelected = false;
 
@@ -84,9 +72,9 @@ public class Scene2Controller {
             itemtxt.setText("Carpet");
         }
     }
-    public boolean iscover =false;
+    public boolean isCover =false;
     public void cover() {
-        iscover=true;
+        isCover =true;
         itemname = "cover";
         if (itemtxt != null) {
             itemtxt.setText("Cover");
@@ -136,16 +124,16 @@ public class Scene2Controller {
             int dis = (int) (res * 0.1);
             if (res > 400){
                 res -= dis;
-                if (iscover){
+                if (isCover){
                     res = res - 40;
                     alr.setContentText(con1+ res);
-                    iscover=false;
+                    isCover =false;
                 }
                 else {
                     alr.setContentText(con1+ res);
                 }
             }else{
-                if (iscover) {
+                if (isCover) {
                     res = res - 40;
                     alr.setContentText(con2 + res);
                 }else{
@@ -172,16 +160,16 @@ public class Scene2Controller {
             int dis = (int) (res * 0.1);
             if (res > 400){
                 res -= dis;
-                if (iscover){
+                if (isCover){
                     res = res - 40;
                     alr.setContentText(con1 + res);
-                    iscover=false;
+                    isCover =false;
                 }
                 else {
                     alr.setContentText(con1 + res);
                 }
             }else{
-                if (iscover) {
+                if (isCover) {
                     res = res - 40;
                     alr.setContentText(con2 + res);
                 }else{
@@ -203,16 +191,16 @@ public class Scene2Controller {
             int dis = (int) (res * 0.1);
             if (res > 400){
                 res -= dis;
-                if (iscover){
+                if (isCover){
                     res = res - 40;
                     alr.setContentText(con1 + res);
-                    iscover=false;
+                    isCover =false;
                 }
                 else {
                     alr.setContentText(con1 + res);
                 }
             }else{
-                if (iscover) {
+                if (isCover) {
                     res = res - 40;
                     alr.setContentText(con2 + res);
                 }else{
@@ -327,20 +315,20 @@ public boolean isclicked =false;
 
     private void Bwr(String filename) throws IOException {
         BufferedWriter writer = new BufferedWriter(new FileWriter(filename, true));
-        CustomerId = String.format("%03d", counter);
-        writer.write(CustomerId + "\t" + s1.getUsername() + "\t" + DelText.getText() + "\t" + itemname + "\t" + itemsize + "\t" + cleaningtype + "\t" + Price + "\n");
+        customerId = String.format("%03d", counter);
+        writer.write(customerId + "\t" + s1.getUsername() + "\t" + DelText.getText() + "\t" + itemname + "\t" + itemsize + "\t" + cleaningtype + "\t" + Price + "\n");
         counter++;
-        MsgText = "Your order with IDnumber " + CustomerId + " has been accepted and will be processed shortly, it will be sent to this location when it's done " + DelText.getText() + " Thank you for choosing us";
+        msgText = "Your order with IDnumber " + customerId + " has been accepted and will be processed shortly, it will be sent to this location when it's done " + DelText.getText() + " Thank you for choosing us";
         writer.close();
         LOGGER.info("Order saved to file: " + filename);
     }
     private static final Logger LOGGER = Logger.getLogger(Scene2Controller.class.getName());
     private void Bwrr(String filename) throws IOException {
         BufferedWriter writer = new BufferedWriter(new FileWriter(filename, true));
-        CustomerId = String.format("%03d", counter);
-        writer.write(CustomerId + "\t" + s1.getUsername() + "\t" + "" +  "\t" + itemname + "\t" + itemsize + "\t" + cleaningtype + "\t" + res + "\n");
+        customerId = String.format("%03d", counter);
+        writer.write(customerId + "\t" + s1.getUsername() + "\t" + "" +  "\t" + itemname + "\t" + itemsize + "\t" + cleaningtype + "\t" + res + "\n");
         counter++;
-        MsgText = "Your order with IDnumber " + CustomerId + " has been accepted and will be processed shortly, We will send you an email when it's ready to pickup, Thank you for choosing us";
+        msgText = "Your order with IDnumber " + customerId + " has been accepted and will be processed shortly, We will send you an email when it's ready to pickup, Thank you for choosing us";
         writer.close();
         LOGGER.info("Order saved to file: " + filename);
     }
@@ -351,9 +339,9 @@ public boolean isclicked =false;
 
 
        String email12 = s1.getEmailAddress(s1.getUsername());
-        String subject = OrderAccepted;
-        String messageBody = MsgText;
-        sendEmail x = new sendEmail(email12, subject, messageBody);
+        String subject = orderAccepted;
+        String messageBody = msgText;
+        new EmailSender(email12, subject, messageBody);
 
     }
 }
