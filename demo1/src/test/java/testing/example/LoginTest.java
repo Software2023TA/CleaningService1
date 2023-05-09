@@ -8,8 +8,10 @@ import io.cucumber.java.en.When;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import org.testfx.api.FxRobot;
-import static org.junit.jupiter.api.Assertions.*;
 import java.io.IOException;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 
 public class LoginTest extends FxRobot {
 

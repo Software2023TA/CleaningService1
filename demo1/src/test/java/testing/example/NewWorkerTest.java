@@ -12,7 +12,8 @@ import java.nio.file.Paths;
 import java.util.List;
 import java.util.Objects;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
+
 
 public class NewWorkerTest {
 
