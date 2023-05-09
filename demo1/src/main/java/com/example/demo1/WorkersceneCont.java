@@ -117,7 +117,6 @@ public class WorkersceneCont {
                 e.printStackTrace();
             }
         });
-        //LoggedOutMsg();
     }
 
     private static String messageBody;
