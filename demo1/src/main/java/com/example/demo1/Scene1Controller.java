@@ -186,7 +186,7 @@ public class Scene1Controller {
     }
 
     public static String getEmailAddress(String username) {
-        try (Scanner scanner = new Scanner(new File("Customers.txt"))) {
+        try (Scanner scanner = new Scanner(new File("C:\\Users\\Msys\\Desktop\\CleaningSrv\\Customers.txt"))) {
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
                 String[] fields = line.split(",");
