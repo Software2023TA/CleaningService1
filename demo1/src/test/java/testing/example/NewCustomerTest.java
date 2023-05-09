@@ -16,8 +16,6 @@ public class NewCustomerTest {
     Scene4Controller controller = new Scene4Controller();
     @When("the user enters valid data")
     public void the_user_enters_valid_data() throws IOException {
-        // Write code here that turns the phrase above into concrete actions
-        //throw new io.cucumber.java.PendingException();
         Platform.runLater(() -> {
             try {
                 Main.scene4 = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/Scene4.fxml")));
@@ -30,8 +28,6 @@ public class NewCustomerTest {
 
     @When("the user clicks on the Sign up button")
     public void the_user_clicks_on_the_sign_up_button() {
-        // Write code here that turns the phrase above into concrete actions
-        //throw new io.cucumber.java.PendingException();
         Platform.runLater(() -> {
             try {
                 Main.scene4 = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/Scene4.fxml")));
@@ -45,7 +41,6 @@ public class NewCustomerTest {
 
     @Then("the user data should be saved in the database")
     public void the_user_data_should_be_saved_in_the_database() throws IOException {
-        // Write code here that turns the phrase above into concrete actions
         Platform.runLater(() -> {
             try {
                 Main.scene4 = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/Scene4.fxml")));
@@ -74,8 +69,6 @@ public class NewCustomerTest {
 
     @When("the user enters invalid data")
     public void the_user_enters_invalid_data() throws IOException {
-        // Write code here that turns the phrase above into concrete actions
-        //throw new io.cucumber.java.PendingException();
         Platform.runLater(() -> {
             try {
                 Main.scene4 = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/Scene4.fxml")));
@@ -84,12 +77,10 @@ public class NewCustomerTest {
                 e.printStackTrace();
             }
         });
-//        assertFalse(Scene4Controller.validInputUser);
     }
 
     @Then("the user data should not be saved in the database")
     public void the_user_data_should_not_be_saved_in_the_database() throws IOException {
-        // Write code here that turns the phrase above into concrete actions
         Platform.runLater(() -> {
             try {
                 Main.scene4 = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/Scene4.fxml")));

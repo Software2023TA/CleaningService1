@@ -8,8 +8,6 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-import org.w3c.dom.Text;
-
 import java.io.*;
 import java.time.format.DateTimeFormatter;
 import java.util.Objects;
@@ -31,6 +29,8 @@ public class Scene3Controller {
     private TextArea textarea1;
     private int totalCash = 0;
     private int numOrders = 0;
+    public boolean CO = false;
+    public boolean CH = false;
 
     @FXML
     private TextField firstname;
@@ -56,14 +56,12 @@ public class Scene3Controller {
     @FXML
     public static boolean validWorkerInput;
 
-    //get
 
   public void switchScene1(ActionEvent event) throws IOException {
    Platform.runLater(() -> {
     try {
      Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Scene1.fxml")));
      Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-     //stage.setScene(new Scene(root));
      stage.setScene(Main.scene1);
 
     } catch (IOException e) {
@@ -71,10 +69,10 @@ public class Scene3Controller {
     }
    });
       clearAllFields();
-   //LoggedOutMsg();
   }
 
   public void calculateCash(ActionEvent event) throws IOException {
+      CH = true;
     cashfield.setEditable(false);
    try (BufferedReader reader = new BufferedReader(new FileReader("Reports.txt"))) {
     String line;
@@ -88,6 +86,7 @@ public class Scene3Controller {
    cashfield.setText(String.valueOf(totalCash));
   }
  public void countOrders(ActionEvent event) throws IOException {
+      CO = true;
      salesfield.setEditable(false);
   try (BufferedReader reader = new BufferedReader(new FileReader("Reports.txt"))) {
    while (reader.readLine() != null) {
@@ -124,7 +123,6 @@ public class Scene3Controller {
             e.printStackTrace();
         }
 
-        // Check if fields are not empty and are valid
         boolean notEmptyFields = !fname.isEmpty() && !lname.isEmpty() && !username.isEmpty() && !email.isEmpty() && !phone.isEmpty() && !password.isEmpty();
         boolean isValidUsername = username.matches("^Worker([1-9]|[1-9][0-9]|100)$");
         boolean isValidEmail = email.matches("^[\\w-.]+@([\\w-]+\\.)+[\\w-]{2,4}$");

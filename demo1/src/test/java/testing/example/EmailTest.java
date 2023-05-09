@@ -13,8 +13,6 @@ public class EmailTest {
 
     @When("i click on waiting button")
     public void i_click_on_waiting_button() {
-        // Write code here that turns the phrase above into concrete actions
-        //throw new io.cucumber.java.PendingException();
         Platform.runLater(() -> {
         WorkersceneCont obj = new WorkersceneCont();
         TextField id = obj.getTextID();
@@ -26,16 +24,12 @@ public class EmailTest {
 
     @Then("send email")
     public void send_email() {
-        // Write code here that turns the phrase above into concrete actions
-        //throw new io.cucumber.java.PendingException();
         WorkersceneCont obj = new WorkersceneCont();
         assertTrue(obj.getsent());
     }
 
     @When("i click on in treatment button")
     public void i_click_on_in_treatment_button() {
-        // Write code here that turns the phrase above into concrete actions
-        //throw new io.cucumber.java.PendingException();
         Platform.runLater(() -> {
             WorkersceneCont obj = new WorkersceneCont();
             String ActMsg = obj.getMsg();
@@ -46,8 +40,6 @@ public class EmailTest {
 
     @When("i click on complete button")
     public void i_click_on_complete_button() {
-        // Write code here that turns the phrase above into concrete actions
-        //throw new io.cucumber.java.PendingException();
         Platform.runLater(() -> {
             WorkersceneCont obj = new WorkersceneCont();
         String ActMsg =obj.getMsg();

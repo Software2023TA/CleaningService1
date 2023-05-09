@@ -16,7 +16,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Objects;
 public class Scene4Controller {
-    //public String errorMessage;
     @FXML
     private PasswordField passwordff;
     @FXML
@@ -32,7 +31,6 @@ public class Scene4Controller {
 
 
 
-//create a method that saves the data to a textfile
     @FXML
 public void saveData(ActionEvent event) throws IOException {
     String username = getUsername();
@@ -41,13 +39,10 @@ public void saveData(ActionEvent event) throws IOException {
     String phone = getPhone();
 
     boolean validUsername = username.matches("^(?!Worker\\d*$|Admin\\d*$)[A-Za-z][A-Za-z0-9_]*$");
-    // check if the username does not start with "Worker" or "Admin" followed by digits
 
     boolean validEmail = email.matches("^[\\w-.]+@([\\w-]+\\.)+[\\w-]{2,4}$");
-    // check if the email is valid
 
     boolean validPhone = phone.matches("^\\d{10}$");
-    // check if the phone number has 10 digits
 
     StringBuilder errorMessages = new StringBuilder();
     validInputUser = true;
@@ -95,14 +90,12 @@ public void saveData(ActionEvent event) throws IOException {
             try {
                 Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Scene1.fxml")));
                 Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                //stage.setScene(new Scene(root));
                 stage.setScene(Main.scene1);
 
             } catch (IOException e) {
                 e.printStackTrace();
             }
         });
-        //LoggedOutMsg();
     }
     public String getUsername() throws IOException{
         if (usernamefield != null) {
