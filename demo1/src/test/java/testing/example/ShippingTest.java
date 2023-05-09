@@ -16,19 +16,19 @@ public class ShippingTest {
 
     @When("i choose delivery method")
     public void i_choose_delivery_method() throws IOException {
-        obj.DeliveryBH(new ActionEvent());
+        obj.DeliveryBH();
     }
 
     @Then("i should be asked for my location")
     public void i_should_be_asked_for_my_location() throws IOException {
-        obj.LocatioHandle(new ActionEvent());
+        obj.LocatioHandle();
     }
 
     @When("i choose pickup method")
     public void i_choose_pickup_method() throws IOException {
         Platform.runLater(() -> {
             try {
-                obj.PickupBH(new ActionEvent());
+                obj.PickupBH();
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
