@@ -14,11 +14,13 @@ import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 
-public class sendEmail {
-    public sendEmail() {
-        final String username = "cleaningservicezt2023@gmail.com";
-        final String password = "txkjgexkvplmbvgs";
-        String fromEmail = username;
+public class EmailSender extends Exception{
+    final String companyemail = "cleaningservicezt2023@gmail.com";
+    final String companypassword = "txkjgexkvplmbvgs";
+    String reportFile = "C:\\Users\\Msys\\Desktop\\Cleaning\\Reports.txt";
+    public EmailSender() throws MyException {
+
+        String fromEmail = companyemail;
         String toEmail = "amerkobari22@gmail.com";
 
         Properties properties = new Properties();
@@ -29,7 +31,7 @@ public class sendEmail {
 
         Session session = Session.getInstance(properties, new javax.mail.Authenticator() {
             protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication(username, password);
+                return new PasswordAuthentication(companyemail, companypassword);
             }
         });
 
@@ -47,7 +49,7 @@ public class sendEmail {
 
             MimeBodyPart pdfAttachment = new MimeBodyPart();
 
-            pdfAttachment.attachFile("C:\\Users\\MsI\\Desktop\\ProjectSoft\\demo1\\Reports.txt");
+            pdfAttachment.attachFile(reportFile);
 
             emailContent.addBodyPart(textBodyPart);
             emailContent.addBodyPart(pdfAttachment);
@@ -60,13 +62,11 @@ public class sendEmail {
         } catch (MessagingException e) {
             e.printStackTrace();
         } catch (IOException ex) {
-            throw new RuntimeException(ex);
+            throw new MyException(ex);
         }
     }
-    public sendEmail(String to, String subject, String body) {
-        final String username = "cleaningservicezt2023@gmail.com";
-        final String password = "txkjgexkvplmbvgs";
-        String fromEmail = "cleaningservicezt2023@gmail.com";
+    public EmailSender(String to, String subject, String body) {
+        String fromEmail = companyemail;
         String toEmail = to;
 
         Properties properties = new Properties();
@@ -76,8 +76,9 @@ public class sendEmail {
         properties.put("mail.smtp.port", "587");
 
         Session session = Session.getInstance(properties, new javax.mail.Authenticator() {
+            @Override
             protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication(username, password);
+                return new PasswordAuthentication(companyemail, companypassword);
             }
         });
 
@@ -93,4 +94,5 @@ public class sendEmail {
             e.printStackTrace();
         }
     }
+
 }

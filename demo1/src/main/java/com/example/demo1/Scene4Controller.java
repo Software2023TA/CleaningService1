@@ -14,6 +14,8 @@ import javax.swing.*;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Objects;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Scene4Controller {
     @FXML
@@ -25,10 +27,13 @@ public class Scene4Controller {
     @FXML
     private TextField phonefield;
     @FXML
-    public static boolean validInputUser;
+    public  boolean validInputUser;
     @FXML
     public  Button  signup;
 
+    public  boolean getvalidInputUser() {
+        return validInputUser;
+    }
 
 
     @FXML
@@ -38,9 +43,11 @@ public void saveData(ActionEvent event) throws IOException {
     String email = getEmail();
     String phone = getPhone();
 
-    boolean validUsername = username.matches("^(?!Worker\\d*$|Admin\\d*$)[A-Za-z][A-Za-z0-9_]*$");
+    boolean validUsername = username.matches("^(?!Worker\\d*$|Admin\\d*$)[A-Za-z]\\w*$");
 
-    boolean validEmail = email.matches("^[\\w-.]+@([\\w-]+\\.)+[\\w-]{2,4}$");
+        Pattern pattern = Pattern.compile("^[\\w-.]+@([\\w-]+\\.)+[\\w-]{2,4}$");
+        Matcher matcher = pattern.matcher(email);
+    boolean validEmail = matcher.matches();
 
     boolean validPhone = phone.matches("^\\d{10}$");
 
@@ -100,7 +107,6 @@ public void saveData(ActionEvent event) throws IOException {
     public String getUsername() throws IOException{
         if (usernamefield != null) {
            String username1= usernamefield.getText();
-            System.out.println(username1+"123");
             return username1 ;
 
         } else {
@@ -109,24 +115,21 @@ public void saveData(ActionEvent event) throws IOException {
     }
     public String getPassword(){
         if (passwordff != null) {
-            String password1 = passwordff.getText();
-            return password1;
+            return passwordff.getText();
         } else {
             return null;
         }
     }
     public String getEmail(){
         if(emailfield != null){
-            String email1 = emailfield.getText();
-            return email1;
+            return emailfield.getText();
         }else
             return null;
 
     }
     public String getPhone(){
       if(phonefield != null){
-          String phone1 = phonefield.getText();
-          return phone1;
+          return phonefield.getText();
         }else
             return null;
     }
@@ -139,8 +142,8 @@ public void saveData(ActionEvent event) throws IOException {
         passwordff.setText(password);
     }
 
-    public void setEmail(String invalid_email) {
-        emailfield.setText(invalid_email);
+    public void setEmail(String invalidEmail) {
+        emailfield.setText(invalidEmail);
     }
 
     public void setPhone(String s) {

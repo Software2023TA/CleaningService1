@@ -21,6 +21,13 @@ import javafx.stage.Window;
 
 public class Scene1Controller {
 
+    String reportFile = "C:\\Users\\Msys\\Desktop\\Cleaning\\Reports.txt";
+    String orderFile = "C:\\Users\\Msys\\Desktop\\Cleaning\\Order.txt";
+    String availableWFile = "C:\\Users\\Msys\\Desktop\\Cleaning\\AvailableW.txt";
+    String workerFile = "C:\\Users\\Msys\\Desktop\\Cleaning\\Workers.txt";
+    String customerFile = "C:\\Users\\Msys\\Desktop\\Cleaning\\Customers.txt";
+
+
     boolean validCredential = false;
     @FXML
     Parent root;
@@ -68,7 +75,7 @@ public class Scene1Controller {
         if (fieldUser != null && fieldPass != null) {
             username = fieldUser.getText();
             String password = fieldPass.getText();
-            boolean validCredentials = CheckCredentials(username, password, "C:\\Users\\Msys\\Desktop\\Cleaning\\Untitled.txt");
+            boolean validCredentials = checkCredentials(username, password, "C:\\Users\\Msys\\Desktop\\Cleaning\\Untitled.txt");
             if (validCredentials) {
                 setValidCredential(true);
                 if (username.startsWith("Worker")) {
@@ -80,7 +87,7 @@ public class Scene1Controller {
                 }
             } else {
                 setValidCredential(false);
-                ShowErrorMessage();
+                showErrorMessage();
             }
         } else {
             setValidCredential(false);
@@ -116,7 +123,7 @@ public class Scene1Controller {
     }
 
     @FXML
-    public boolean CheckCredentials(String username, String password, String filePath) throws IOException {
+    public boolean checkCredentials(String username, String password, String filePath) throws IOException {
         String classFilePath = new File(filePath).getAbsolutePath();
         BufferedReader reader = new BufferedReader(new FileReader(classFilePath));
         String line;
@@ -131,7 +138,7 @@ public class Scene1Controller {
         return false;
     }
     @FXML
-    public void ShowErrorMessage() {
+    public void showErrorMessage() {
         Platform.runLater(() -> {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Login Failed");
@@ -186,8 +193,8 @@ public class Scene1Controller {
         return Main.scene1;
     }
 
-    public static String getEmailAddress(String username) {
-        try (Scanner scanner = new Scanner(new File("C:\\Users\\Msys\\Desktop\\CleaningSrv\\Customers.txt"))) {
+    public String getEmailAddress(String username) {
+        try (Scanner scanner = new Scanner(new File(customerFile))) {
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
                 String[] fields = line.split(",");

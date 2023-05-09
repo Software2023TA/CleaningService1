@@ -21,7 +21,7 @@ public class NewCustomerTest {
         Platform.runLater(() -> {
             try {
                 Main.scene4 = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/Scene4.fxml")));
-                assertTrue(Scene4Controller.validInputUser);
+                assertTrue(controller.getvalidInputUser());
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -60,7 +60,7 @@ public class NewCustomerTest {
                 }
                 String actualData = String.join(",", lines);
                 assertEquals(expectedData, actualData);
-                assertTrue(Scene4Controller.validInputUser);
+                assertTrue(controller.getvalidInputUser());
                 System.out.println("VALIDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD");
             } catch (IOException e) {
                 e.printStackTrace();
@@ -74,7 +74,7 @@ public class NewCustomerTest {
         Platform.runLater(() -> {
             try {
                 Main.scene4 = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/Scene4.fxml")));
-                assertFalse(Scene4Controller.validInputUser);
+                assertFalse(controller.getvalidInputUser());
             } catch (IOException e) {
                 e.printStackTrace();
             }

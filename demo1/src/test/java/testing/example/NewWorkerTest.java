@@ -24,7 +24,7 @@ public class NewWorkerTest {
         Platform.runLater(() -> {
             try {
                 Main.scene3 = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/Scene3.fxml")));
-                assertTrue(Scene3Controller.validWorkerInput);
+                assertTrue(controller.getvalidWorkerInput());
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -77,7 +77,7 @@ public class NewWorkerTest {
         Platform.runLater(() -> {
             try {
                 Main.scene3 = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/Scene3.fxml")));
-                assertFalse(Scene3Controller.validWorkerInput);
+                assertFalse(controller.getvalidWorkerInput());
             } catch (IOException e) {
                 e.printStackTrace();
             }
