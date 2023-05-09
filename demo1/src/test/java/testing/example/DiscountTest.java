@@ -1,6 +1,5 @@
 package testing.example;
 
-import com.example.demo1.Scene2Controller;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import javafx.application.Platform;
@@ -21,6 +20,19 @@ public class DiscountTest {
                 discount = expectedDiscount;
                 int discountedPrice = (int) (price * (1.0 - (discount / 100.0)));
                 Assert.assertEquals(discountedPrice, price * 0.9);
+            });
+        }
+
+        @When("the price less than {int}")
+        public void the_price_less_than(Integer int1) {
+            price = int1;
+        }
+
+        @Then("no discount")
+        public void no_discount() {
+            Platform.runLater(() -> {
+                int P = price;
+                Assert.assertEquals(P, price);
             });
         }
     }

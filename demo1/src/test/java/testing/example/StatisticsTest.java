@@ -5,7 +5,6 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import javafx.application.Platform;
 import org.junit.Assert;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -16,15 +15,15 @@ public class StatisticsTest {
     private int totalCash = 0;
     @When("i click on total sales button")
     public void i_click_on_total_sales_button() {
-        // Write code here that turns the phrase above into concrete actions
-        //throw new io.cucumber.java.PendingException();
+        Platform.runLater(() -> {
+            Scene3Controller obj = new Scene3Controller();
+            Assert.assertTrue(obj.CO );
 
+        });
     }
 
     @Then("it will print the result in sales textfield")
     public void it_will_print_the_result_in_sales_textfield() {
-        // Write code here that turns the phrase above into concrete actions
-        //throw new io.cucumber.java.PendingException();
         Platform.runLater(() -> {
             Scene3Controller obj = new Scene3Controller();
             try (BufferedReader reader = new BufferedReader(new FileReader("Reports.txt"))) {
@@ -42,15 +41,15 @@ public class StatisticsTest {
 
     @When("i click on cash button")
     public void i_click_on_cash_button() {
-        // Write code here that turns the phrase above into concrete actions
-        //throw new io.cucumber.java.PendingException();
+        Platform.runLater(() -> {
+            Scene3Controller obj = new Scene3Controller();
+            Assert.assertTrue(obj.CH );
 
+        });
     }
 
     @Then("it will print the result in cash textfield")
     public void it_will_print_the_result_in_cash_textfield() {
-        // Write code here that turns the phrase above into concrete actions
-        //throw new io.cucumber.java.PendingException();
         Platform.runLater(() -> {
             Scene3Controller obj = new Scene3Controller();
             try (BufferedReader reader = new BufferedReader(new FileReader("Reports.txt"))) {

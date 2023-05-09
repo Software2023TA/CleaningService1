@@ -2,13 +2,10 @@ package testing.example;
 
 import com.example.demo1.Main;
 import com.example.demo1.Scene3Controller;
-import com.example.demo1.Scene4Controller;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
-
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -23,8 +20,6 @@ public class NewWorkerTest {
 
     @When("the Admin enters valid data")
     public void the_admin_enters_valid_data() {
-        // Write code here that turns the phrase above into concrete actions
-        //throw new io.cucumber.java.PendingException();
         Platform.runLater(() -> {
             try {
                 Main.scene3 = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/Scene3.fxml")));
@@ -38,8 +33,6 @@ public class NewWorkerTest {
 
     @When("the Admin clicks on the Create New worker button")
     public void the_admin_clicks_on_the_create_new_worker_button() {
-        // Write code here that turns the phrase above into concrete actions
-        //throw new io.cucumber.java.PendingException();
         Platform.runLater(() -> {
             try {
                 Main.scene3 = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/Scene3.fxml")));
@@ -53,8 +46,6 @@ public class NewWorkerTest {
 
     @Then("the Wroker data should be saved in the database")
     public void the_wroker_data_should_be_saved_in_the_database() {
-        // Write code here that turns the phrase above into concrete actions
-       //throw new io.cucumber.java.PendingException();
         Platform.runLater(() -> {
             try {
                 Main.scene3 = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/Scene3.fxml")));
@@ -82,8 +73,6 @@ public class NewWorkerTest {
 
     @When("the Admin enters invalid data")
     public void the_admin_enters_invalid_data() {
-        // Write code here that turns the phrase above into concrete actions
-        //throw new io.cucumber.java.PendingException();
         Platform.runLater(() -> {
             try {
                 Main.scene3 = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/Scene3.fxml")));
@@ -96,8 +85,6 @@ public class NewWorkerTest {
 
     @Then("the Wroker data should not be saved in the database")
     public void the_wroker_data_should_not_be_saved_in_the_database() {
-        // Write code here that turns the phrase above into concrete actions
-       //throw new io.cucumber.java.PendingException();
         Platform.runLater(() -> {
             try {
                 Main.scene3 = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/Scene3.fxml")));

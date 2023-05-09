@@ -8,37 +8,13 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-import java.util.Properties;
-import javax.mail.*;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
-
 import java.io.IOException;
-import java.util.Properties;
-
-import javax.mail.Message;
-import javax.mail.MessagingException;
-import javax.mail.Multipart;
-import javax.mail.PasswordAuthentication;
-import javax.mail.Session;
-import javax.mail.Transport;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeBodyPart;
-import javax.mail.internet.MimeMessage;
-import javax.mail.internet.MimeMultipart;
-
-
-
-//import javax.awt.Label;
 import java.io.*;
 import java.util.Objects;
-import java.util.Properties;
 
 public class Scene2Controller {
 
-    //public Alert alert;
     public Alert alert ;
-    //public Label sizetxt;
     @FXML
     Parent root;
     @FXML
@@ -52,12 +28,6 @@ public class Scene2Controller {
     String CustomerId="null";
     private String OrderAccepted = "Order Accepted";
     private String MsgText ="null";
-            //@FXML
-//public TextField ShippingType;
-//
-//    public void initialize() {
-//        ShippingType = new TextField();
-//    }
     @FXML
     Label Location;
     @FXML
@@ -79,7 +49,6 @@ public class Scene2Controller {
 
     @FXML
     void initialize(ActionEvent event) {
-        //saveToTextFile();
         if (tabPane != null) {
             tabPane.getSelectionModel().select(1);
         }
@@ -87,22 +56,18 @@ public class Scene2Controller {
 
     private ActionEvent event;
 
-    public void CheckCredentials() {
-    }
 
     public void switchScene1(ActionEvent event) throws IOException {
         Platform.runLater(() -> {
             try {
                 Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Scene1.fxml")));
                 Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                //stage.setScene(new Scene(root));
                 stage.setScene(Main.scene1);
 
             } catch (IOException e) {
                 e.printStackTrace();
             }
         });
-        //LoggedOutMsg();
     }
 
     public Parent getRoot() {
@@ -125,11 +90,7 @@ public class Scene2Controller {
         if (itemtxt != null) {
             itemtxt.setText("Carpet");
         } else {
-            // sizetxt is null, handle the error
-            //Log.e("TAG", "sizetxt is null");
         }
-        //System.out.println(itemname);
-        //return true;
     }
     public boolean iscover =false;
     public void cover() {
@@ -138,11 +99,7 @@ public class Scene2Controller {
         if (itemtxt != null) {
             itemtxt.setText("Cover");
         } else {
-            // sizetxt is null, handle the error
-            //Log.e("TAG", "sizetxt is null");
         }
-        //System.out.println(itemname);
-        //return true;
     }
 
     public void SizeHandle1(ActionEvent event) throws IOException {
@@ -150,15 +107,13 @@ public class Scene2Controller {
             sizetxt.setText("200x100");
             itemsize = "200x100";
         } else {
-            // sizetxt is null, handle the error
-            //Log.e("TAG", "sizetxt is null");
         }
         int i = 280;
         Scene2Controller.setprice(i);
     }
-    static int price;
+    static int PRC;
     private static void setprice(int i) {
-        price = i;
+        PRC = i;
     }
 
     public void SizeHandle2(ActionEvent event) {
@@ -166,21 +121,16 @@ public class Scene2Controller {
             sizetxt.setText("200x200");
             itemsize = "200x200";
         } else {
-            // sizetxt is null, handle the error
-            //Log.e("TAG", "sizetxt is null");
         }
         int i = 300;
         Scene2Controller.setprice(i);
     }
 
     public void SizeHandle3(ActionEvent event) {
-//        sizetxt.setText("you chose 300x200");
         if (sizetxt != null) {
             sizetxt.setText("300x200");
             itemsize = "300x200";
         } else {
-            // sizetxt is null, handle the error
-            //Log.e("TAG", "sizetxt is null");
         }
         int i = 350;
         Scene2Controller.setprice(i);
@@ -220,7 +170,7 @@ public class Scene2Controller {
     }
 
     public int getprice() {
-        return price;
+        return PRC;
     }
 
     public void DryBH(ActionEvent event) {
@@ -298,7 +248,6 @@ public class Scene2Controller {
 
 
     public void PickupBH(ActionEvent event) throws  IOException {
-//        ShippingType.setText("Pickup");
         if (ShippingType != null) {
             ShippingType.setText("Pickup");
         }
@@ -313,7 +262,6 @@ public class Scene2Controller {
 public boolean isclicked =false;
     public void DeliveryBH(ActionEvent event) throws IOException {
         isclicked=true;
-//        ShippingType.setText("Delivery");
         if (ShippingType != null) {
             ShippingType.setText("Delivery");
         }
@@ -356,7 +304,6 @@ public boolean isclicked =false;
                     String lastId = parts[0];
                     counter = Integer.parseInt(lastId) + 1;
                 }
-                // s1.getUsername();
                 BufferedWriter writer = new BufferedWriter(new FileWriter(filename, true));
                 CustomerId = String.format("%03d", counter);
                 writer.write(CustomerId + "\t" + Scene1Controller.username + "\t" + DelText.getText() + "\t" + itemname + "\t" + itemsize + "\t" + cleaningtype + "\t" + Price + "\n");
@@ -385,7 +332,6 @@ public boolean isclicked =false;
                     String lastId = parts[0];
                     counter = Integer.parseInt(lastId) + 1;
                 }
-                // s1.getUsername();
                 BufferedWriter writer = new BufferedWriter(new FileWriter(filename, true));
                 CustomerId = String.format("%03d", counter);
                 writer.write(CustomerId + "\t" + Scene1Controller.username + "\t" + "" +  "\t" + itemname + "\t" + itemsize + "\t" + cleaningtype + "\t" + res + "\n");
@@ -399,20 +345,15 @@ public boolean isclicked =false;
         }
     }
 
-    // This method is called when the "Save" button is clicked
     public void onProceedclick() throws IOException {
-        // Get the email address entered by the user in the GUI
         saveToTextFile();
         Scene1Controller s1 = new Scene1Controller();
 
 
        String email12 = s1.getEmailAddress(Scene1Controller.username);
-        // Get the email subject entered by the user in the GUI
         String subject = OrderAccepted;
-        // Get the email message body entered by the user in the GUI
         String messageBody = MsgText;
         sendEmail x = new sendEmail(email12, subject, messageBody);
-        // Send the email
 
     }
 }
