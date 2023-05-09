@@ -34,6 +34,7 @@ public class Scene2Controller {
     @FXML
     private TabPane tabPane;
 
+
     String itemname ;
     String itemsize;
     String cleaningtype;

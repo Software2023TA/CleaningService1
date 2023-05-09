@@ -46,7 +46,8 @@ public class sendEmail {
 
 
             MimeBodyPart pdfAttachment = new MimeBodyPart();
-            pdfAttachment.attachFile("C:\\Users\\Msys\\Desktop\\Cleaning\\Reports.txt");
+
+            pdfAttachment.attachFile("C:\\Users\\MsI\\Desktop\\ProjectSoft\\demo1\\Reports.txt");
 
             emailContent.addBodyPart(textBodyPart);
             emailContent.addBodyPart(pdfAttachment);
