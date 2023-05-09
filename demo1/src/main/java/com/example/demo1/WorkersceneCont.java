@@ -123,7 +123,7 @@ public class WorkersceneCont {
     public static String getName(String id) {
         String name = "";
         sent = false;
-        try (Scanner scanner = new Scanner(new File("C:\\Users\\Msys\\Desktop\\CleaningSrv\\Reports.txt"))) {
+        try (Scanner scanner = new Scanner(new File("C:\\Users\\Msys\\Desktop\\Cleaning\\Reports.txt"))) {
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
                 String[] fields = line.split("\t");

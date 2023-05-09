@@ -68,7 +68,7 @@ public class Scene1Controller {
         if (fieldUser != null && fieldPass != null) {
             username = fieldUser.getText();
             String password = fieldPass.getText();
-            boolean validCredentials = CheckCredentials(username, password, "C:\\Users\\Msys\\Desktop\\CleaningSrv\\Untitled.txt");
+            boolean validCredentials = CheckCredentials(username, password, "C:\\Users\\Msys\\Desktop\\Cleaning\\Untitled.txt");
             if (validCredentials) {
                 setValidCredential(true);
                 if (username.startsWith("Worker")) {
