@@ -10,7 +10,9 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
 import java.util.Objects;
-import static org.junit.jupiter.api.Assertions.*;
+
+import static org.junit.Assert.*;
+
 public class NewCustomerTest {
 
     Scene4Controller controller = new Scene4Controller();

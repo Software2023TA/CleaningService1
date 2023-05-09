@@ -306,7 +306,8 @@ public boolean isclicked =false;
                 }
                 BufferedWriter writer = new BufferedWriter(new FileWriter(filename, true));
                 CustomerId = String.format("%03d", counter);
-                writer.write(CustomerId + "\t" + Scene1Controller.username + "\t" + DelText.getText() + "\t" + itemname + "\t" + itemsize + "\t" + cleaningtype + "\t" + Price + "\n");
+                Scene1Controller s = new Scene1Controller();
+                writer.write(CustomerId + "\t" + s.getUsername() + "\t" + DelText.getText() + "\t" + itemname + "\t" + itemsize + "\t" + cleaningtype + "\t" + Price + "\n");
                 counter++;
                 MsgText = "Your order with IDnumber " + CustomerId + " has been accepted and will be processed shortly, it will be sent to this location when it's done " + DelText.getText() + " Thank you for choosing us";
                 writer.close();
@@ -334,7 +335,8 @@ public boolean isclicked =false;
                 }
                 BufferedWriter writer = new BufferedWriter(new FileWriter(filename, true));
                 CustomerId = String.format("%03d", counter);
-                writer.write(CustomerId + "\t" + Scene1Controller.username + "\t" + "" +  "\t" + itemname + "\t" + itemsize + "\t" + cleaningtype + "\t" + res + "\n");
+                Scene1Controller s = new Scene1Controller();
+                writer.write(CustomerId + "\t" + s.getUsername() + "\t" + "" +  "\t" + itemname + "\t" + itemsize + "\t" + cleaningtype + "\t" + res + "\n");
                 counter++;
                 MsgText = "Your order with IDnumber " + CustomerId + " has been accepted and will be processed shortly, We will send you an email when it's ready to pickup, Thank you for choosing us";
                 writer.close();
@@ -350,7 +352,7 @@ public boolean isclicked =false;
         Scene1Controller s1 = new Scene1Controller();
 
 
-       String email12 = s1.getEmailAddress(Scene1Controller.username);
+       String email12 = s1.getEmailAddress(s1.getUsername());
         String subject = OrderAccepted;
         String messageBody = MsgText;
         sendEmail x = new sendEmail(email12, subject, messageBody);
