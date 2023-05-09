@@ -1,8 +1,10 @@
 package com.example.demo1;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -15,15 +17,12 @@ import java.io.InputStreamReader;
 
 public class Main extends Application {
 
-
-    public static Node stage;
-
-    public static Stage primaryStage;
-    public static Scene1Controller scene1Controller;
-    public static Scene3Controller scene3Controller;
-    public static Scene2Controller scene2Controller;
-    public static Scene4Controller scene4Controller;
-    public static WorkersceneCont workersceneCont;
+    static Stage primaryStage;
+    static Scene1Controller scene1Controller;
+    static Scene3Controller scene3Controller;
+    static Scene2Controller scene2Controller;
+    static Scene4Controller scene4Controller;
+    static WorkersceneCont workersceneCont;
     public static Scene scene1;
     public static Scene scene3;
     public static Scene scene2;
@@ -106,6 +105,7 @@ public class Main extends Application {
                 }
             }
         } catch (IOException e) {
+            // handle exception
         }
         return true;
     }
