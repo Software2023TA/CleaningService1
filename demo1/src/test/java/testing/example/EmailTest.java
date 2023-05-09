@@ -25,7 +25,7 @@ public class EmailTest {
     @Then("send email")
     public void send_email() {
         WorkersceneCont obj = new WorkersceneCont();
-        assertTrue(obj.getsent());
+        assertEquals(true,obj.getsent());
     }
 
     @When("i click on in treatment button")
