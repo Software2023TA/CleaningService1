@@ -17,7 +17,7 @@ public class StatisticsTest {
     public void i_click_on_total_sales_button() {
         Platform.runLater(() -> {
             Scene3Controller obj = new Scene3Controller();
-            Assert.assertTrue(obj.CO );
+            Assert.assertTrue(obj.co);
 
         });
     }
@@ -43,7 +43,7 @@ public class StatisticsTest {
     public void i_click_on_cash_button() {
         Platform.runLater(() -> {
             Scene3Controller obj = new Scene3Controller();
-            Assert.assertTrue(obj.CH );
+            Assert.assertTrue(obj.ch);
 
         });
     }
