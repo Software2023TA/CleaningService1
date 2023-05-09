@@ -163,7 +163,7 @@ public class Scene3Controller {
 
     public void Reloading (ActionEvent event) throws FileNotFoundException {
 
-        File file = new File("C:\\Users\\Msys\\Desktop\\CleaningSrv\\Reports.txt");
+        File file = new File("C:\\Users\\MsI\\Desktop\\ProjectSoft\\demo1\\Reports.txt");
         Scanner scanner = new Scanner(file);
         String fileContent = "";
         while (scanner.hasNextLine()) {
