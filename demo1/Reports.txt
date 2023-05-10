@@ -15,3 +15,6 @@
 026	amerkobarii		cover	300x200	Deep Cleaning	374
 027	amerkobarii		cover	300x200	Dry Cleaning	383
 028	newamer		cover	200x200	Deep Cleaning	329
+029	amerko2		cover	300x200	Deep Cleaning	0
+030	newnew		cover	300x200	Speed Cleaning	387
+031	newnew	City	cover	300x200	Speed Cleaning	0

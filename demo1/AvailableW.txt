@@ -49,3 +49,11 @@ amerkobarii	Available
 amerkobarii	Available
 null	Unavailable
 null	Available
+newamer	Unavailable
+newamer	Available
+null	Unavailable
+null	Unavailable
+null	Unavailable
+null	Unavailable
+newnew	Unavailable
+newnew	Available

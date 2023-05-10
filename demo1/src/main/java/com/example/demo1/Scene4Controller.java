@@ -132,19 +132,8 @@ public void saveData(ActionEvent event) throws IOException {
             return null;
     }
 
-    public void setUsername(String worker123) {
-        usernamefield.setText(worker123);
-    }
-
-    public void setPassword(String password) {
-        passwordff.setText(password);
-    }
-
     public void setEmail(String invalidEmail) {
         emailfield.setText(invalidEmail);
     }
 
-    public void setPhone(String s) {
-        phonefield.setText(s);
-    }
 }
