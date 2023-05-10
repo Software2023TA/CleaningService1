@@ -66,10 +66,20 @@ public class Scene1Controller {
     @FXML
     private static boolean isApplicationClosed = false;
     @FXML
-    static String email = null;
+    public String email = null;
 
     @FXML
     public  String username   = null;
+
+    public String getScene2Username() {
+        return scene2Username;
+    }
+
+    public void setScene2Username(String scene2Username) {
+        this.scene2Username = scene2Username;
+    }
+
+    public static String scene2Username = null;
 
     @FXML
     public void login(ActionEvent event) throws IOException {
@@ -85,6 +95,7 @@ public class Scene1Controller {
                     switchScene3(event);
                 } else {
                     switchScene2(event);
+                    setScene2Username(username);
                 }
             } else {
                 setValidCredential(false);
@@ -211,17 +222,6 @@ public class Scene1Controller {
     }
     private static final Logger LOGGER = Logger.getLogger(Scene1Controller.class.getName());
 
-    public String getUsername() throws IOException{
-        if (fieldUser != null) {
-            username= fieldUser.getText();
-            String userin = username + "123";
-            LOGGER.info(userin);
-            return username ;
-
-        } else {
-            return null;
-        }
-    }
 }
 
 

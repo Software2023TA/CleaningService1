@@ -18,6 +18,8 @@ import java.util.logging.Logger;
 public class WorkersceneCont {
     Scene1Controller s1 = new Scene1Controller();
     String reportFile = "C:\\Users\\Msys\\Desktop\\Cleaning\\Reports.txt";
+
+    String thankYou = "Thank you for using our service. We hope to see you again soon!";
     private boolean sent = false;
     @FXML
     private TextArea textArea;
@@ -27,7 +29,7 @@ public class WorkersceneCont {
 
     private String status;
     private String availableWorker;
-    private static String  msgText;
+    private String  msgText;
     @FXML
     public void reloading(ActionEvent event) throws FileNotFoundException {
 
@@ -48,13 +50,13 @@ public class WorkersceneCont {
     public String getTextID() {
         return textID.getText();
     }
-    private static final Logger LOGGER = Logger.getLogger(Scene2Controller.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(WorkersceneCont.class.getName());
     public void orders() throws IOException {
         String filename = "Order.txt";
         String id = textID.getText();
         BufferedWriter writer = new BufferedWriter(new FileWriter(filename, true));
         Scene1Controller s = new Scene1Controller();
-        writer.write(s.getUsername() + "\t" + id + "\t" + status + "\n");        writer.close();
+        writer.write(s.getScene2Username() + "\t" + id + "\t" + status + "\n");        writer.close();
         LOGGER.info("Order saved to file: " + filename);
     }
 
@@ -62,7 +64,7 @@ public class WorkersceneCont {
         String filename = "AvailableW.txt";
         BufferedWriter writer = new BufferedWriter(new FileWriter(filename, true));
         Scene1Controller s = new Scene1Controller();
-        writer.write(s.getUsername() + "\t" + availableWorker + "\n");
+        writer.write(s.getScene2Username() + "\t" + availableWorker + "\n");
         writer.close();
         LOGGER.info("Order saved to file: " + filename);
     }
@@ -84,7 +86,7 @@ public class WorkersceneCont {
     public void waiting(ActionEvent event) throws IOException {
         status = "Added";
         availableWorker = "Unavailable";
-        msgText = "Your order has been added to the system and is waiting for a worker to accept it.\n Your order ID is: " + textID.getText() + "\n Thank you for using our service.\n";
+        msgText = "Your order has been added to the system and is waiting for a worker to accept it.\n Your order ID is: " + textID.getText() + "\n" +  thankYou +"\n";
         String number = getTextID();
         getName(String.valueOf(number));
         orders();
@@ -93,7 +95,7 @@ public class WorkersceneCont {
     @FXML
     public void inTreatment(ActionEvent event) throws IOException {
         status = "InTreatment";
-        msgText = "Your order has been accepted by a worker and is being treated.\n Your order ID is: " + textID.getText() + "\n Thank you for using our service.\n";
+        msgText = "Your order has been accepted by a worker and is being treated.\n Your order ID is: " + textID.getText() + "\n" +  thankYou +"\n";
         getName(textID.getText());
         orders();
     }
@@ -101,7 +103,7 @@ public class WorkersceneCont {
     public void complete(ActionEvent event) throws IOException {
         status = "Complete";
         availableWorker = "Available";
-        msgText = "Your order has been completed.\n Your order ID is: " + textID.getText() + "\n Thank you for using our service.\n";
+        msgText = "Your order has been completed.\n Your order ID is: " + textID.getText() + "\n" +  thankYou +"\n";
         getName(textID.getText());
         orders();
         availableW();

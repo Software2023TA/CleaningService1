@@ -12,4 +12,3 @@ Worker1	003	InTreatment
 Worker1	003	Complete
 Worker1	003	Added
 Worker1	003	Complete
-null	003	Added

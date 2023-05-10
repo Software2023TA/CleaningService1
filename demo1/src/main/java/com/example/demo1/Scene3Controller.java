@@ -30,8 +30,17 @@ public class Scene3Controller {
     private TextArea textarea1;
     private int totalCash = 0;
     private int numOrders = 0;
-    public boolean co = false;
-    public boolean ch = false;
+    private boolean co = false;
+
+    public boolean isCo() {
+        return co;
+    }
+    private boolean ch = false;
+
+    public boolean isCh() {
+        return ch;
+    }
+
 
     @FXML
     private TextField firstname;
@@ -131,7 +140,7 @@ public class Scene3Controller {
 
         boolean notEmptyFields = !fname.isEmpty() && !lname.isEmpty() && !username.isEmpty() && !email.isEmpty() && !phone.isEmpty() && !password.isEmpty();
         boolean isValidUsername = username.matches("^Worker([1-9]|[1-9]\\d|100)$");
-        boolean isValidEmail = email.matches("^[\\w-.]+@([\\w-]+\\.)+[\\w-]{2,4}$");
+        boolean isValidEmail = email.matches("^(?:[\\w-.]+@)+(?:[\\w-]+\\.)+[\\w-]{2,4}$");
         boolean isValidPhone = phone.matches("^\\d{10}$");
         boolean isValidName = fname.matches("^[A-Za-z]*$") && lname.matches("^[A-Za-z]*$");
 

@@ -20,36 +20,36 @@ public class Main extends Application {
     static Scene2Controller scene2Controller;
     static Scene4Controller scene4Controller;
     static WorkersceneCont workersceneCont;
-    public static Scene scene1;
-    public static Scene scene3;
-    public static Scene scene2;
-    public static Scene scene4;
+    public  static Scene scene1  ;
+    public  static Scene scene3  ;
+    public static  Scene scene2  ;
+    public static  Scene scene4 ;
 
     public static Scene scene5;
-    @Override
-    public void start(Stage stage) throws IOException {
+
+    public static void loader(Stage stage) throws IOException {
         primaryStage = stage;
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("Scene1.fxml"));
+        FXMLLoader loader = new FXMLLoader(Main.class.getResource("Scene1.fxml"));
         AnchorPane pane1 = loader.load();
         scene1 = new Scene(pane1);
         scene1Controller = loader.getController();
 
-       loader = new FXMLLoader(getClass().getResource("Scene2.fxml"));
+       loader = new FXMLLoader(Main.class.getResource("Scene2.fxml"));
         AnchorPane pane2 = loader.load();
         scene2 =new Scene(pane2);
         scene2Controller = loader.getController();
 
-        loader = new FXMLLoader(getClass().getResource("Scene3.fxml"));
+        loader = new FXMLLoader(Main.class.getResource("Scene3.fxml"));
         AnchorPane pane3 = loader.load();
         scene3 = new Scene(pane3);
         scene3Controller = loader.getController();
 
-        loader = new FXMLLoader(getClass().getResource("Scene4.fxml"));
+        loader = new FXMLLoader(Main.class.getResource("Scene4.fxml"));
         AnchorPane pane4 = loader.load();
         scene4 = new Scene(pane4);
         scene4Controller = loader.getController();
 
-        loader = new FXMLLoader(getClass().getResource("WorkerScene.fxml"));
+        loader = new FXMLLoader(Main.class.getResource("WorkerScene.fxml"));
         AnchorPane pane5 = loader.load();
         scene5 = new Scene(pane5);
         workersceneCont = loader.getController();
@@ -66,8 +66,9 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) {
-        Application.launch(Main.class, args);
+        Application.launch(args);
     }
+
 
     public static Scene getCurrentScene() {
         if (primaryStage.getScene() == scene1) {
@@ -106,5 +107,10 @@ public class Main extends Application {
 
         }
         return true;
+    }
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        loader(primaryStage);
     }
 }

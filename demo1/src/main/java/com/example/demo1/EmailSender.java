@@ -19,12 +19,12 @@ import javax.mail.internet.MimeMultipart;
 
 
         public class EmailSender extends Exception{
-           static final String companyemail = "cleaningservicezt2023@gmail.com";
-           static final String companypassword = "txkjgexkvplmbvgs";
-           static final String reportFile = "C:\\Users\\Msys\\Desktop\\Cleaning\\Reports.txt";
+           static final String companyEmail = "cleaningservicezt2023@gmail.com";
+           static final String companyPassword = "txkjgexkvplmbvgs";
+           static final String report_File = "C:\\Users\\Msys\\Desktop\\Cleaning\\Reports.txt";
             public EmailSender() throws MyException {
 
-                String fromEmail = companyemail;
+                String fromEmail = companyEmail;
                 String toEmail = "amerkobari22@gmail.com";
 
                 Properties properties = new Properties();
@@ -36,7 +36,7 @@ import javax.mail.internet.MimeMultipart;
                 Session session = Session.getInstance(properties, new javax.mail.Authenticator() {
                     @Override
                     protected PasswordAuthentication getPasswordAuthentication() {
-                        return new PasswordAuthentication(companyemail, companypassword);
+                        return new PasswordAuthentication(companyEmail, companyPassword);
                     }
                 });
 
@@ -55,7 +55,7 @@ import javax.mail.internet.MimeMultipart;
 
                     MimeBodyPart pdfAttachment = new MimeBodyPart();
 
-                    pdfAttachment.attachFile(reportFile);
+                    pdfAttachment.attachFile(report_File);
 
                     emailContent.addBodyPart(textBodyPart);
                     emailContent.addBodyPart(pdfAttachment);
@@ -71,10 +71,10 @@ import javax.mail.internet.MimeMultipart;
                     throw new MyException(ex);
                 }
             }
-            String sentMSG = "Sent message";
-            private static final Logger LOGGER = Logger.getLogger(Scene2Controller.class.getName());
+           final String sentMSG = "Sent message";
+            private static final Logger LOGGER = Logger.getLogger(EmailSender.class.getName());
             public EmailSender(String to, String subject, String body) {
-                String fromEmail = companyemail;
+                String fromEmail = companyEmail;
                 String toEmail = to;
 
                 Properties properties = new Properties();
@@ -86,7 +86,7 @@ import javax.mail.internet.MimeMultipart;
                 Session session = Session.getInstance(properties, new javax.mail.Authenticator() {
                     @Override
                     protected PasswordAuthentication getPasswordAuthentication() {
-                        return new PasswordAuthentication(companyemail, companypassword);
+                        return new PasswordAuthentication(companyEmail, companyPassword);
                     }
                 });
 
