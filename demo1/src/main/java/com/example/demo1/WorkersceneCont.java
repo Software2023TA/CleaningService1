@@ -17,7 +17,10 @@ import java.util.logging.Logger;
 
 public class WorkersceneCont {
 
-    private static boolean sent = false;
+    Scene1Controller s1 = new Scene1Controller();
+    String reportFile = "C:\\Users\\Msys\\Desktop\\Cleaning\\Reports.txt";
+    private boolean sent = false;
+
     @FXML
     private TextArea textArea;
 
@@ -26,7 +29,9 @@ public class WorkersceneCont {
 
     private String status;
     private String availableWorker;
-    private static String  MsgText;
+
+    private static String  msgText;
+
     @FXML
     public void reloading(ActionEvent event) throws FileNotFoundException {
 
@@ -84,7 +89,9 @@ public class WorkersceneCont {
     public void waiting(ActionEvent event) throws IOException {
         status = "Added";
         availableWorker = "Unavailable";
-        MsgText = "Your order has been added to the system and is waiting for a worker to accept it.\n Your order ID is: " + textID.getText() + "\n Thank you for using our service.\n";
+
+        msgText = "Your order has been added to the system and is waiting for a worker to accept it.\n Your order ID is: " + textID.getText() + "\n Thank you for using our service.\n";
+
         String number = getTextID();
         getName(String.valueOf(number));
         orders();
@@ -101,7 +108,9 @@ public class WorkersceneCont {
     public void complete(ActionEvent event) throws IOException {
         status = "Complete";
         availableWorker = "Available";
-        MsgText = "Your order has been completed.\n Your order ID is: " + textID.getText() + "\n Thank you for using our service.\n";
+
+        msgText = "Your order has been completed.\n Your order ID is: " + textID.getText() + "\n Thank you for using our service.\n";
+
         getName(textID.getText());
         orders();
         availableW();

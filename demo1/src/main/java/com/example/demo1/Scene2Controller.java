@@ -13,24 +13,28 @@ import java.io.*;
 import java.util.Objects;
 import java.util.logging.Logger;
 
+
 public class Scene2Controller {
 
     public Alert alert;
+
     @FXML
-    Parent root;
+    public Button NEXTbutton;
     @FXML
-    public TextField sizetxt;
+    public Tab shippingTab;
     @FXML
-    public TextField itemtxt;
+    public Tab mainTab;
     @FXML
-    public TextField delText;
+    public Button logoutButton;
+
+    String customerId ="null";
     @FXML
-    public TextField shippingType;
-    String CustomerId="null";
-    private String OrderAccepted = "Order Accepted";
-    private String MsgText ="null";
+    private String orderAccepted = "Order Accepted";
+
+    private String msgText ="null";
+
     @FXML
-    Label Location;
+    private Label location1;
     @FXML
     private TabPane tabPane;
 
@@ -65,15 +69,6 @@ public class Scene2Controller {
 
     public Parent getRoot() {
         return root;
-    }
-
-
-
-    public void LoggedOutMsg() {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Logged Out");
-        alert.setHeaderText("You are now Logged Out");
-        alert.showAndWait();
     }
 
     boolean isCarpetSelected = false;
@@ -238,8 +233,8 @@ public class Scene2Controller {
         if (delText != null) {
             delText.setVisible(true);
         }
-        if (Location != null) {
-            Location.setVisible(true);
+        if (location1 != null) {
+            location1.setVisible(true);
         }
     }
 
@@ -252,18 +247,20 @@ public class Scene2Controller {
         if (delText != null) {
             delText.setVisible(false);
         }
-        if (Location != null) {
-            Location.setVisible(false);
+        if (location1 != null) {
+            location1.setVisible(false);
         }
         readymessage();
     }
 public static boolean isclicked =false;
     public void setIsclicked(boolean isclicked) {
         this.isclicked = isclicked;
+
     }
     public boolean getIsclicked(){
         return isclicked;
     }
+
     public void deliveryBH() throws IOException {
         setIsclicked(true);
         if (shippingType != null) {
@@ -341,10 +338,12 @@ public static boolean isclicked =false;
 
     private void bwr(String filename) throws IOException {
         BufferedWriter writer = new BufferedWriter(new FileWriter(filename, true));
-        CustomerId = String.format("%03d", counter);
-        writer.write(CustomerId + "\t" + s1.getUsername() + "\t" + delText.getText() + "\t" + itemname + "\t" + itemsize + "\t" + cleaningtype + "\t" + price + "\n");
+
+        customerId = String.format("%03d", counter);
+        writer.write(customerId + "\t" + s1.getUsername() + "\t" + delText.getText() + "\t" + itemname + "\t" + itemsize + "\t" + cleaningtype + "\t" + price + "\n");
         counter++;
-        MsgText = "Your order with IDnumber " + CustomerId + " has been accepted and will be processed shortly, it will be sent to this location when it's done " + delText.getText() + " Thank you for choosing us";
+        msgText = "Your order with IDnumber " + customerId + " has been accepted and will be processed shortly, it will be sent to this location when it's done " + delText.getText() + " Thank you for choosing us";
+
         writer.close();
         String Fin = "Order saved to file: " + filename;
         LOGGER.info(Fin);
@@ -363,9 +362,6 @@ public static boolean isclicked =false;
 
     public void onProceedclick() throws IOException, MyException {
         saveToTextFile();
-
-
-
        String email12 = s1.getEmailAddress(s1.getUsername());
         String subject = OrderAccepted;
         String messageBody = MsgText;

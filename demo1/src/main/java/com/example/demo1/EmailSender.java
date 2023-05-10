@@ -19,9 +19,10 @@ import javax.mail.internet.MimeMultipart;
 
 
         public class EmailSender extends Exception{
-            final String companyemail = "cleaningservicezt2023@gmail.com";
-            final String companypassword = "txkjgexkvplmbvgs";
-            String reportFile = "C:\\Users\\Msys\\Desktop\\Cleaning\\Reports.txt";
+
+           static final String companyemail = "cleaningservicezt2023@gmail.com";
+           static final String companypassword = "txkjgexkvplmbvgs";
+
             public EmailSender() throws MyException {
 
                 String fromEmail = companyemail;
@@ -34,6 +35,9 @@ import javax.mail.internet.MimeMultipart;
                 properties.put("mail.smtp.port", "587");
 
                 Session session = Session.getInstance(properties, new javax.mail.Authenticator() {
+
+                    @Override
+
                     protected PasswordAuthentication getPasswordAuthentication() {
                         return new PasswordAuthentication(companyemail, companypassword);
                     }

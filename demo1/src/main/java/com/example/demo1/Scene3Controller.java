@@ -71,33 +71,39 @@ public class Scene3Controller {
       clearAllFields();
   }
 
-  public void calculateCash(ActionEvent event) throws IOException {
-      ch = true;
-    cashfield.setEditable(false);
-   try (BufferedReader reader = new BufferedReader(new FileReader("Reports.txt"))) {
-    String line;
-    while ((line = reader.readLine()) != null) {
-     String[] tokens = line.split("\t");
-     totalCash += Integer.parseInt(tokens[tokens.length - 1]);
+    public void calculateCash()  {
+        ch = true;
+        cashfield.setEditable(false);
+        try (BufferedReader reader = new BufferedReader(new FileReader(reportFile))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] tokens = line.split("\t");
+                totalCash += Integer.parseInt(tokens[tokens.length - 1]);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        cashfield.setText(String.valueOf(totalCash));
     }
-   } catch (IOException e) {
-    e.printStackTrace();
-   }
-   cashfield.setText(String.valueOf(totalCash));
-  }
- public void countOrders(ActionEvent event) throws IOException {
-      co = true;
-     salesfield.setEditable(false);
-  try (BufferedReader reader = new BufferedReader(new FileReader("Reports.txt"))) {
-   while (reader.readLine() != null) {
-    numOrders++;
-   }
-  } catch (IOException e) {
-   e.printStackTrace();
-  }
+    public void countOrders() {
+        co = true;
+        salesfield.setEditable(false);
+        try (BufferedReader reader = new BufferedReader(new FileReader(reportFile))) {
+            String readStored = reader.readLine();
+            while (readStored != null) {
+                if (!readStored.isEmpty()) {
+                    numOrders++;
+                }
+                readStored = reader.readLine(); // read the next line
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
-  salesfield.setText(String.valueOf(numOrders));
- }
+        salesfield.setText(String.valueOf(numOrders));
+    }
+
+
 
     public void saveUserData(ActionEvent event) throws IOException {
         String fname = "";

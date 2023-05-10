@@ -26,6 +26,7 @@ public class Scene1Controller {
     String availableWFile = "C:\\Users\\Msys\\Desktop\\Cleaning\\AvailableW.txt";
     String workerFile = "C:\\Users\\Msys\\Desktop\\Cleaning\\Workers.txt";
     String customerFile = "C:\\Users\\Msys\\Desktop\\Cleaning\\Customers.txt";
+    String adminFile = "C:\\Users\\Msys\\Desktop\\Cleaning\\Untitled.txt";
 
 
     boolean validCredential = false;
@@ -75,7 +76,7 @@ public class Scene1Controller {
         if (fieldUser != null && fieldPass != null) {
             username = fieldUser.getText();
             String password = fieldPass.getText();
-            boolean validCredentials = checkCredentials(username, password, "C:\\Users\\Msys\\Desktop\\Cleaning\\Untitled.txt");
+            boolean validCredentials = checkCredentials(username, password, adminFile);
             if (validCredentials) {
                 setValidCredential(true);
                 if (username.startsWith("Worker")) {
