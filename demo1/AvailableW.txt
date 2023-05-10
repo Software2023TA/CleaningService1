@@ -42,3 +42,7 @@ Worker15	Unavailable
 Worker15	Unavailable
 Worker15	Unavailable
 Worker15	Unavailable
+null	Unavailable
+null	Available
+null	Unavailable
+null	Available

@@ -4,3 +4,4 @@
 004	Amer		cover	300x200	Dry Cleaning	383
 004	Amer		cover	300x200	Dry Cleaning	370
 005	tarq		cover	200x200	Deep Cleaning	329
+006	null	Holland	carpet	300x200	Dry Cleaning	0
