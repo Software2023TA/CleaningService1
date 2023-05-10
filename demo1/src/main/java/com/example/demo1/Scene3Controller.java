@@ -19,7 +19,7 @@ import javax.swing.JOptionPane;
 
 public class Scene3Controller {
 
-    String reportFile = "C:\\Users\\Msys\\Desktop\\Cleaning\\Reports.txt";
+    String reportFile = "C:\\Users\\Msys\\Desktop\\Cleaning\\demo1\\Reports.txt";
     @FXML
     private TextField cashfield;
     @FXML

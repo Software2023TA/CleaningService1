@@ -3,3 +3,8 @@ Amer,Kobari,Worker13,amer@gmail.com,0599799230,30/03/2023
 Ahmad,Hamood,Worker40,amerkobari22@gmail.com,0599799230,01/06/2023
 Ahmad,Khalid,Worker50,amerkobari22@gmail.com,0599799230,18/05/2023
 Tariq,Marmash,Worker100,amerkobari22@gmail.com,0599799230,11/04/2023
+Amer,Koba,Worker30,amerkobari22@gmail.com,0599799230,23/05/2023
+David,Dom,Worker80,amerkobari22@gmail.com,0599799230,17/10/2022
+Abdallah,Hannod,Worker1,amerkobari22@gmail.com,0599799230,30/03/2022
+Amer,Kobari,Worker56,amerkobari22@gmail.com,0599799230,14/05/2023
+Amer,Kobari,Worker87,amerkobari22@gmail.com,0599799230,07/05/2023

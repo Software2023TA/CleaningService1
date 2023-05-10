@@ -3,3 +3,7 @@
 003	tareq		carpet	200x100	Speed Cleaning	360
 004	Hana	Rafidia	carpet	300x200	Dry Cleaning	0
 005	Hana	Rafidia	carpet	300x200	Dry Cleaning	0
+006	newamer	Delivery	cover	300x200	Deep Cleaning	0
+007	newamer		cover	300x200	Deep Cleaning	374
+008	newamer		cover	300x200	Deep Cleaning	374
+009	newamer		cover	300x200	Deep Cleaning	374

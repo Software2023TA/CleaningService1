@@ -17,12 +17,9 @@ import java.util.logging.Logger;
 
 public class WorkersceneCont {
     Scene1Controller s1 = new Scene1Controller();
-    String reportFile = "C:\\Users\\Msys\\Desktop\\Cleaning\\Reports.txt";
-    String orderFile = "C:\\Users\\Msys\\Desktop\\Cleaning\\Order.txt";
-    String availableWFile = "C:\\Users\\Msys\\Desktop\\Cleaning\\AvailableW.txt";
-    String workerFile = "C:\\Users\\Msys\\Desktop\\Cleaning\\Workers.txt";
-    String customerFile = "C:\\Users\\Msys\\Desktop\\Cleaning\\Customers.txt";
-    String adminFile = "C:\\Users\\Msys\\Desktop\\Cleaning\\Untitled.txt";
+    String reportFile = "C:\\Users\\Msys\\Desktop\\Cleaning\\demo1\\Reports.txt";
+    String orderFile = "C:\\Users\\Msys\\Desktop\\Cleaning\\demo1\\Order.txt";
+    String availableWFile = "C:\\Users\\Msys\\Desktop\\Cleaning\\demo1\\AvailableW.txt";
     String thankYou = "Thank you for using our service. We hope to see you again soon!";
     String saveOrder = "Order saved to file: " + orderFile;
     String saveAva = "Order saved to file: " + availableWFile;
