@@ -42,7 +42,10 @@ Worker15	Unavailable
 Worker15	Unavailable
 Worker15	Unavailable
 Worker15	Unavailable
-null	Unavailable
-null	Available
+amerkobarii	Unavailable
+amerkobarii	Unavailable
+amerkobarii	Unavailable
+amerkobarii	Available
+amerkobarii	Available
 null	Unavailable
 null	Available

@@ -21,7 +21,7 @@ import javax.mail.internet.MimeMultipart;
         public class EmailSender extends Exception{
            static final String COMPANY_EMAIL = "cleaningservicezt2023@gmail.com";
            static final String COMPANY_PASSWORD = "txkjgexkvplmbvgs";
-           static final String REPORT_FILE = "C:\\Users\\Msys\\Desktop\\Cleaning\\Reports.txt";
+           static final String REPORT_FILE = "C:\\Users\\Msys\\Desktop\\Cleaning\\demo1\\Reports.txt";
             public EmailSender() throws MyException {
 
                 String fromEmail = COMPANY_EMAIL;

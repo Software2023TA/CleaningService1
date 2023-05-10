@@ -13,3 +13,9 @@ Worker40,10
 Worker50,1
 Worker100,1010
 amerkobari12,1010
+Worker30,1010
+amerko,1
+amerkobarii,1
+Worker80,10
+newamer,10
+Worker1,1010

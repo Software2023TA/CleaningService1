@@ -20,13 +20,8 @@ import javafx.stage.Window;
 
 
 public class Scene1Controller {
-
-    String reportFile = "C:\\Users\\Msys\\Desktop\\Cleaning\\Reports.txt";
-    String orderFile = "C:\\Users\\Msys\\Desktop\\Cleaning\\Order.txt";
-    String availableWFile = "C:\\Users\\Msys\\Desktop\\Cleaning\\AvailableW.txt";
-    String workerFile = "C:\\Users\\Msys\\Desktop\\Cleaning\\Workers.txt";
-    String customerFile = "C:\\Users\\Msys\\Desktop\\Cleaning\\Customers.txt";
-    String adminFile = "C:\\Users\\Msys\\Desktop\\Cleaning\\Untitled.txt";
+    String customerFile = "C:\\Users\\Msys\\Desktop\\Cleaning\\demo1\\Customers.txt";
+    String adminFile = "C:\\Users\\Msys\\Desktop\\Cleaning\\demo1\\Untitled.txt";
 
 
     boolean validCredential = false;
