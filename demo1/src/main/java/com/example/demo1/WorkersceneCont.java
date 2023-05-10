@@ -18,9 +18,6 @@ import java.util.logging.Logger;
 public class WorkersceneCont {
     Scene1Controller s1 = new Scene1Controller();
     String reportFile = "C:\\Users\\Msys\\Desktop\\Cleaning\\Reports.txt";
-
-
-
     private boolean sent = false;
     @FXML
     private TextArea textArea;

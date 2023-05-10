@@ -34,7 +34,8 @@ import javax.mail.internet.MimeMultipart;
                 properties.put("mail.smtp.port", "587");
 
                 Session session = Session.getInstance(properties, new javax.mail.Authenticator() {
-                    @Overrideprotected PasswordAuthentication getPasswordAuthentication() {
+                    @Override
+                    protected PasswordAuthentication getPasswordAuthentication() {
                         return new PasswordAuthentication(companyemail, companypassword);
                     }
                 });

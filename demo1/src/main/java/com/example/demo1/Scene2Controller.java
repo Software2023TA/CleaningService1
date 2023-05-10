@@ -13,9 +13,18 @@ import java.io.*;
 import java.util.Objects;
 import java.util.logging.Logger;
 
+
 public class Scene2Controller {
 
     public Alert alert;
+    @FXML
+    public Button NEXTbutton;
+    @FXML
+    public Tab shippingTab;
+    @FXML
+    public Tab mainTab;
+    @FXML
+    public Button logoutButton;
     @FXML
     Parent root;
     @FXML
@@ -26,11 +35,14 @@ public class Scene2Controller {
     public TextField delText;
     @FXML
     public TextField shippingType;
-    String CustomerId="null";
-    private String OrderAccepted = "Order Accepted";
-    private String MsgText ="null";
+
+    String customerId ="null";
     @FXML
-    Label location;
+    private String orderAccepted = "Order Accepted";
+
+    private String msgText ="null";
+    @FXML
+    private Label location1;
     @FXML
     private TabPane tabPane;
 
@@ -67,14 +79,6 @@ public class Scene2Controller {
         return root;
     }
 
-
-
-    public void LoggedOutMsg() {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Logged Out");
-        alert.setHeaderText("You are now Logged Out");
-        alert.showAndWait();
-    }
 
     boolean isCarpetSelected = false;
 
@@ -238,8 +242,8 @@ public class Scene2Controller {
         if (delText != null) {
             delText.setVisible(true);
         }
-        if (location != null) {
-            location.setVisible(true);
+        if (location1 != null) {
+            location1.setVisible(true);
         }
     }
 
@@ -252,8 +256,8 @@ public class Scene2Controller {
         if (delText != null) {
             delText.setVisible(false);
         }
-        if (location != null) {
-            location.setVisible(false);
+        if (location1 != null) {
+            location1.setVisible(false);
         }
         readymessage();
     }
@@ -364,9 +368,6 @@ public static boolean isclicked =false;
 
     public void onProceedclick() throws IOException {
         saveToTextFile();
-
-
-
        String email12 = s1.getEmailAddress(s1.getUsername());
         String subject = orderAccepted;
         String messageBody = msgText;

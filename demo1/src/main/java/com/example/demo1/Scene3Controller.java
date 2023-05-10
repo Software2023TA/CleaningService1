@@ -73,7 +73,7 @@ public class Scene3Controller {
   }
 
     public void calculateCash()  {
-        CH = true;
+        ch = true;
         cashfield.setEditable(false);
         try (BufferedReader reader = new BufferedReader(new FileReader(reportFile))) {
             String line;
@@ -86,13 +86,16 @@ public class Scene3Controller {
         }
         cashfield.setText(String.valueOf(totalCash));
     }
-    public void countOrders()  {
-        CO = true;
+    public void countOrders() {
+        co = true;
         salesfield.setEditable(false);
         try (BufferedReader reader = new BufferedReader(new FileReader(reportFile))) {
             String readStored = reader.readLine();
             while (readStored != null) {
-                numOrders++;
+                if (!readStored.isEmpty()) {
+                    numOrders++;
+                }
+                readStored = reader.readLine(); // read the next line
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -100,6 +103,7 @@ public class Scene3Controller {
 
         salesfield.setText(String.valueOf(numOrders));
     }
+
 
     public void saveUserData()  {
         String fname = "";
