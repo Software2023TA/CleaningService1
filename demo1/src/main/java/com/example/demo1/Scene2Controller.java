@@ -17,6 +17,7 @@ import java.util.logging.Logger;
 public class Scene2Controller {
 
     public Alert alert;
+
     @FXML
     public Button NEXTbutton;
     @FXML
@@ -25,22 +26,13 @@ public class Scene2Controller {
     public Tab mainTab;
     @FXML
     public Button logoutButton;
-    @FXML
-    Parent root;
-    @FXML
-    public TextField sizetxt;
-    @FXML
-    public TextField itemtxt;
-    @FXML
-    public TextField delText;
-    @FXML
-    public TextField shippingType;
 
     String customerId ="null";
     @FXML
     private String orderAccepted = "Order Accepted";
 
     private String msgText ="null";
+
     @FXML
     private Label location1;
     @FXML
@@ -78,7 +70,6 @@ public class Scene2Controller {
     public Parent getRoot() {
         return root;
     }
-
 
     boolean isCarpetSelected = false;
 
@@ -264,10 +255,12 @@ public class Scene2Controller {
 public static boolean isclicked =false;
     public void setIsclicked(boolean isclicked) {
         this.isclicked = isclicked;
+
     }
     public boolean getIsclicked(){
         return isclicked;
     }
+
     public void deliveryBH() throws IOException {
         setIsclicked(true);
         if (shippingType != null) {
@@ -345,6 +338,7 @@ public static boolean isclicked =false;
 
     private void bwr(String filename) throws IOException {
         BufferedWriter writer = new BufferedWriter(new FileWriter(filename, true));
+
         customerId = String.format("%03d", counter);
         writer.write(customerId + "\t" + s1.getUsername() + "\t" + delText.getText() + "\t" + itemname + "\t" + itemsize + "\t" + cleaningtype + "\t" + price + "\n");
         counter++;
@@ -357,20 +351,20 @@ public static boolean isclicked =false;
     private static final Logger LOGGER = Logger.getLogger(Scene2Controller.class.getName());
     private void bwrr(String filename) throws IOException {
         BufferedWriter writer = new BufferedWriter(new FileWriter(filename, true));
-        customerId = String.format("%03d", counter);
-        writer.write(customerId + "\t" + s1.getUsername() + "\t" + "" +  "\t" + itemname + "\t" + itemsize + "\t" + cleaningtype + "\t" + res + "\n");
+        CustomerId = String.format("%03d", counter);
+        writer.write(CustomerId + "\t" + s1.getUsername() + "\t" + "" +  "\t" + itemname + "\t" + itemsize + "\t" + cleaningtype + "\t" + res + "\n");
         counter++;
-        msgText = "Your order with IDnumber " + customerId + " has been accepted and will be processed shortly, We will send you an email when it's ready to pickup, Thank you for choosing us";
+        MsgText = "Your order with IDnumber " + CustomerId + " has been accepted and will be processed shortly, We will send you an email when it's ready to pickup, Thank you for choosing us";
         writer.close();
         String Filein = "Order saved to file: " + filename;
         LOGGER.info(Filein);
     }
 
-    public void onProceedclick() throws IOException {
+    public void onProceedclick() throws IOException, MyException {
         saveToTextFile();
        String email12 = s1.getEmailAddress(s1.getUsername());
-        String subject = orderAccepted;
-        String messageBody = msgText;
+        String subject = OrderAccepted;
+        String messageBody = MsgText;
         new EmailSender(email12, subject, messageBody);
 
     }

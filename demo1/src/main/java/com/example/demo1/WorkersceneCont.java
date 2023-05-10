@@ -16,9 +16,11 @@ import java.util.Scanner;
 import java.util.logging.Logger;
 
 public class WorkersceneCont {
+
     Scene1Controller s1 = new Scene1Controller();
     String reportFile = "C:\\Users\\Msys\\Desktop\\Cleaning\\Reports.txt";
     private boolean sent = false;
+
     @FXML
     private TextArea textArea;
 
@@ -27,12 +29,14 @@ public class WorkersceneCont {
 
     private String status;
     private String availableWorker;
+
     private static String  msgText;
+
     @FXML
     public void reloading(ActionEvent event) throws FileNotFoundException {
 
 
-        File file = new File(reportFile);
+        File file = new File("C:\\Users\\Msys\\Desktop\\CleaningSrv\\Reports.txt");
         Scanner scanner = new Scanner(file);
         StringBuilder fileContentBuilder = new StringBuilder();
         while (scanner.hasNextLine()) {
@@ -52,6 +56,7 @@ public class WorkersceneCont {
     public void orders() throws IOException {
         String filename = "Order.txt";
         String id = textID.getText();
+        // Read the contents of the original file
         BufferedWriter writer = new BufferedWriter(new FileWriter(filename, true));
         Scene1Controller s = new Scene1Controller();
         writer.write(s.getUsername() + "\t" + id + "\t" + status + "\n");        writer.close();
@@ -84,7 +89,9 @@ public class WorkersceneCont {
     public void waiting(ActionEvent event) throws IOException {
         status = "Added";
         availableWorker = "Unavailable";
+
         msgText = "Your order has been added to the system and is waiting for a worker to accept it.\n Your order ID is: " + textID.getText() + "\n Thank you for using our service.\n";
+
         String number = getTextID();
         getName(String.valueOf(number));
         orders();
@@ -93,7 +100,7 @@ public class WorkersceneCont {
     @FXML
     public void inTreatment(ActionEvent event) throws IOException {
         status = "InTreatment";
-        msgText = "Your order has been accepted by a worker and is being treated.\n Your order ID is: " + textID.getText() + "\n Thank you for using our service.\n";
+        MsgText = "Your order has been accepted by a worker and is being treated.\n Your order ID is: " + textID.getText() + "\n Thank you for using our service.\n";
         getName(textID.getText());
         orders();
     }
@@ -101,7 +108,9 @@ public class WorkersceneCont {
     public void complete(ActionEvent event) throws IOException {
         status = "Complete";
         availableWorker = "Available";
+
         msgText = "Your order has been completed.\n Your order ID is: " + textID.getText() + "\n Thank you for using our service.\n";
+
         getName(textID.getText());
         orders();
         availableW();
@@ -120,20 +129,22 @@ public class WorkersceneCont {
             }
         });
     }
-    private String messageBody;
-    public String getName(String id) {
+
+    private static String messageBody;
+    public static String getName(String id) {
         String name = "";
         sent = false;
-        try (Scanner scanner = new Scanner(new File(reportFile))) {
+        try (Scanner scanner = new Scanner(new File("C:\\Users\\Msys\\Desktop\\CleaningSrv\\Reports.txt"))) {
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
                 String[] fields = line.split("\t");
                 if (fields.length >= 3 && fields[0].equals(id)) {
                     name = fields[1];
-                    String email = s1.getEmailAddress(name);
+                    Scene1Controller s1 = new Scene1Controller();
+                    String email12 = s1.getEmailAddress(name);
                     String subject = "OrderUpdate";
-                    messageBody = msgText;
-                    new EmailSender(email, subject, messageBody);
+                    messageBody = MsgText;
+                      new EmailSender(email12, subject, messageBody);
                    sent = true;
                 }
 
