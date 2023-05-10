@@ -101,7 +101,6 @@
                                  <children>
                                     <Button fx:id="deliverybutton" mnemonicParsing="false" onAction="#deliveryBH" prefHeight="26.0" prefWidth="114.0" text="Delivery" />
                                     <Button fx:id="pickupButton" mnemonicParsing="false" onAction="#pickupBH" prefHeight="26.0" prefWidth="118.0" text="Pickup" GridPane.rowIndex="1" />
-
                                  </children>
                               </GridPane>
                               <Label fx:id="location1" layoutX="164.0" layoutY="134.0" text="* Please Write Your Location Bellow" visible="false">

@@ -19,6 +19,7 @@ import javax.swing.JOptionPane;
 
 public class Scene3Controller {
 
+    String reportFile = "C:\\Users\\Msys\\Desktop\\Cleaning\\Reports.txt";
     @FXML
     private TextField cashfield;
     @FXML
@@ -54,10 +55,10 @@ public class Scene3Controller {
     @FXML
     public Button neworker;
     @FXML
-    public static boolean validWorkerInput;
+    public boolean validWorkerInput;
 
 
-  public void switchScene1(ActionEvent event) throws IOException {
+  public void switchScene1(ActionEvent event) throws IOException ,  MyException{
    Platform.runLater(() -> {
     try {
      Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Scene1.fxml")));
@@ -104,8 +105,7 @@ public class Scene3Controller {
     }
 
 
-
-    public void saveUserData(ActionEvent event) throws IOException {
+    public void saveUserData()  {
         String fname = "";
         String lname = "";
         String username = "";
@@ -130,7 +130,7 @@ public class Scene3Controller {
         }
 
         boolean notEmptyFields = !fname.isEmpty() && !lname.isEmpty() && !username.isEmpty() && !email.isEmpty() && !phone.isEmpty() && !password.isEmpty();
-        boolean isValidUsername = username.matches("^Worker([1-9]|[1-9][0-9]|100)$");
+        boolean isValidUsername = username.matches("^Worker([1-9]|[1-9]\\d|100)$");
         boolean isValidEmail = email.matches("^[\\w-.]+@([\\w-]+\\.)+[\\w-]{2,4}$");
         boolean isValidPhone = phone.matches("^\\d{10}$");
         boolean isValidName = fname.matches("^[A-Za-z]*$") && lname.matches("^[A-Za-z]*$");
@@ -167,21 +167,21 @@ public class Scene3Controller {
 
 
 
-    public void reloading(ActionEvent event) throws FileNotFoundException {
-
-        File file = new File("C:\\Users\\MsI\\Desktop\\ProjectSoft\\demo1\\Reports.txt");
+    public void reloading() throws FileNotFoundException {
+        File file = new File(reportFile);
         Scanner scanner = new Scanner(file);
-        String fileContent = "";
+        StringBuilder sb = new StringBuilder();
         while (scanner.hasNextLine()) {
-            fileContent += scanner.nextLine() + "\n";
+            sb.append(scanner.nextLine()).append("\n");
         }
         scanner.close();
-
+        String fileContent = sb.toString();
         textarea1.setText(fileContent);
 
     }
 
-    public void sendReports(ActionEvent event) throws MyException {
+
+    public void sendReports() throws MyException {
         new EmailSender();
     }
     public void clearAllFields() {
@@ -229,7 +229,7 @@ public class Scene3Controller {
     }
 
     public boolean getvalidWorkerInput() {
-      return validWorkerInput;
+        return validWorkerInput;
     }
 }
 
