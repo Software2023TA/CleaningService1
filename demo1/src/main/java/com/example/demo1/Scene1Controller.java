@@ -220,7 +220,6 @@ public class Scene1Controller {
         }
         return email;
     }
-    private static final Logger LOGGER = Logger.getLogger(Scene1Controller.class.getName());
 
 }
 

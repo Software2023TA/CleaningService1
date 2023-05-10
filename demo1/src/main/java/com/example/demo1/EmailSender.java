@@ -68,7 +68,7 @@ import javax.mail.internet.MimeMultipart;
                 } catch (MessagingException e) {
                     e.printStackTrace();
                 } catch (IOException ex) {
-                    throw new MyException(ex);
+                    throw new MyException("Error");
                 }
             }
            final String sentMSG = "Sent message";

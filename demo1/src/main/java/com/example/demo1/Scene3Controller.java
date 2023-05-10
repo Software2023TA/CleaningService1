@@ -191,7 +191,13 @@ public class Scene3Controller {
 
 
     public void sendReports() throws MyException {
-        new EmailSender();
+      try{
+          new EmailSender();
+      }
+      catch (Exception e){
+          throw new MyException("Error sending email");
+      }
+
     }
     public void clearAllFields() {
         cashfield.setText("");
