@@ -5,3 +5,18 @@
 004	Amer		cover	300x200	Dry Cleaning	370
 005	tarq		cover	200x200	Deep Cleaning	329
 006	null	Holland	carpet	300x200	Dry Cleaning	0
+007	null		cover	300x200	Dry Cleaning	383
+008	null		cover	300x200	Speed Cleaning	347
+009	null		cover	200x200	Dry Cleaning	338
+010	null		cover	200x200	Dry Cleaning	338
+011	null		cover	300x200	Deep Cleaning	374
+012	null		cover	300x200	Deep Cleaning	374
+013	null		cover	300x200	Dry Cleaning	383
+014	null		cover	300x200	Deep Cleaning	374
+015	null		cover	300x200	Dry Cleaning	383
+016	null		cover	200x100	Dry Cleaning	360
+017	null		cover	300x200	Dry Cleaning	383
+018	tareq		cover	300x200	Deep Cleaning	374
+019	tareq		cover	200x200	Dry Cleaning	338
+020	Hana		cover	300x200	Dry Cleaning	383
+021	tareq		cover	200x200	Dry Cleaning	0

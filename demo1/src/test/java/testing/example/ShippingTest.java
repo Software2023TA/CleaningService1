@@ -41,7 +41,7 @@ public class ShippingTest {
     public void i_should_receive_a_message_when_it_s_ready() {
         Platform.runLater(() -> {
             obj.readymessage();
-            Alert alert = obj.alert;
+            Alert alert = obj.getALERT();
             assertEquals("Notification...", alert.getTitle());
             assertEquals(null, alert.getHeaderText());
             assertEquals("You will Receive A Message When It's Ready", alert.getContentText());

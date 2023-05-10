@@ -106,9 +106,7 @@ public void saveData(ActionEvent event) throws IOException {
     }
     public String getUsername() throws IOException{
         if (usernamefield != null) {
-           String username1= usernamefield.getText();
-            return username1 ;
-
+            return usernamefield.getText() ;
         } else {
             return null;
         }

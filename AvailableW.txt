@@ -7,3 +7,4 @@ Worker1	Available
 Worker1	Unavailable
 Worker1	Available
 null	Unavailable
+null	Unavailable

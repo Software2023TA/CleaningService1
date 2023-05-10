@@ -12,3 +12,4 @@ tarq,123123
 Worker40,10
 Worker50,1
 Worker100,1010
+amerkobari12,1010

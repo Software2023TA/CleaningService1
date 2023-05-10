@@ -16,9 +16,13 @@ import java.util.logging.Logger;
 
 public class Scene2Controller {
 
-    public Alert alert;
+    private static final Alert ALERT = new Alert(Alert.AlertType.INFORMATION);
+
+    public Alert getALERT() {
+        return ALERT;
+    }
     @FXML
-    public Button NEXTbutton;
+    public Button nextButton;
     @FXML
     public Tab shippingTab;
     @FXML
@@ -26,7 +30,7 @@ public class Scene2Controller {
     @FXML
     public Button logoutButton;
     @FXML
-    Parent root;
+    Parent root1;
     @FXML
     public TextField sizetxt;
     @FXML
@@ -75,8 +79,8 @@ public class Scene2Controller {
         });
     }
 
-    public Parent getRoot() {
-        return root;
+    public Parent getRoot1() {
+        return root1;
     }
 
 
@@ -141,32 +145,28 @@ public class Scene2Controller {
     public void speedBH() {
 
         Platform.runLater(() -> {
-            Alert alr = new Alert(Alert.AlertType.INFORMATION);
-            alr.setTitle("Speed Cleaning");
-            alr.setHeaderText(null);
+            ALERT.setTitle("Speed Cleaning");
+            ALERT.setHeaderText(null);
             res = getprice() + 80;
             int dis = (int) (res * 0.1);
-            if (res > 400){
+            if (res > 400) {
                 res -= dis;
-                if (getIscover()){
-                    res = res - 40;
-                    alr.setContentText(con1+ res);
-                    setIscover(false);
-                }
-                else {
-                    alr.setContentText(con1+ res);
-                }
-            }else{
                 if (getIscover()) {
                     res = res - 40;
-                    alr.setContentText(con2 + res);
-                }else{
-                    alr.setContentText(con2 + res);
-
+                    ALERT.setContentText(con1 + res);
+                    setIscover(false);
+                } else {
+                    ALERT.setContentText(con1 + res);
+                }
+            } else {
+                if (getIscover()) {
+                    res = res - 40;
+                    ALERT.setContentText(con2 + res);
+                } else {
+                    ALERT.setContentText(con2 + res);
                 }
             }
-            alr.showAndWait();
-            this.alert = alr;
+            ALERT.showAndWait();
         });
         cleaningtype = "Speed Cleaning";
     }
@@ -261,7 +261,7 @@ public class Scene2Controller {
         }
         readymessage();
     }
-public static boolean isclicked =false;
+    private static boolean isclicked =false;
     public void setIsclicked(boolean isclicked) {
         this.isclicked = isclicked;
     }
@@ -346,29 +346,29 @@ public static boolean isclicked =false;
     private void bwr(String filename) throws IOException {
         BufferedWriter writer = new BufferedWriter(new FileWriter(filename, true));
         customerId = String.format("%03d", counter);
-        writer.write(customerId + "\t" + s1.getUsername() + "\t" + delText.getText() + "\t" + itemname + "\t" + itemsize + "\t" + cleaningtype + "\t" + price + "\n");
+        writer.write(customerId + "\t" + s1.getScene2Username() + "\t" + delText.getText() + "\t" + itemname + "\t" + itemsize + "\t" + cleaningtype + "\t" + price + "\n");
         counter++;
         msgText = "Your order with IDnumber " + customerId + " has been accepted and will be processed shortly, it will be sent to this location when it's done " + delText.getText() + " Thank you for choosing us";
 
         writer.close();
-        String Fin = "Order saved to file: " + filename;
-        LOGGER.info(Fin);
+        String orderSave = "Order saved to file: " + filename;
+        LOGGER.info(orderSave);
     }
     private static final Logger LOGGER = Logger.getLogger(Scene2Controller.class.getName());
     private void bwrr(String filename) throws IOException {
         BufferedWriter writer = new BufferedWriter(new FileWriter(filename, true));
         customerId = String.format("%03d", counter);
-        writer.write(customerId + "\t" + s1.getUsername() + "\t" + "" +  "\t" + itemname + "\t" + itemsize + "\t" + cleaningtype + "\t" + res + "\n");
+        writer.write(customerId + "\t" + s1.getScene2Username() + "\t" + "" +  "\t" + itemname + "\t" + itemsize + "\t" + cleaningtype + "\t" + res + "\n");
         counter++;
         msgText = "Your order with IDnumber " + customerId + " has been accepted and will be processed shortly, We will send you an email when it's ready to pickup, Thank you for choosing us";
         writer.close();
-        String Filein = "Order saved to file: " + filename;
-        LOGGER.info(Filein);
+        String fileName = "Order saved to file: " + filename;
+        LOGGER.info(fileName);
     }
 
     public void onProceedclick() throws IOException {
         saveToTextFile();
-       String email12 = s1.getEmailAddress(s1.getUsername());
+       String email12 = s1.getEmailAddress(s1.getScene2Username());
         String subject = orderAccepted;
         String messageBody = msgText;
         new EmailSender(email12, subject, messageBody);

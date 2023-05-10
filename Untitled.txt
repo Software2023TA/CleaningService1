@@ -3,7 +3,6 @@ Worker1,1010
 ahmad,1010
 abdallah,1010
 amerkobari,123123
-amerkobari,
 amerkobari,1
 Worker2,0599799230
 Worker3,1

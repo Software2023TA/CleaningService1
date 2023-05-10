@@ -6,4 +6,7 @@ public class MyException extends Exception {
     public MyException (IOException errorMessage) {
         super(errorMessage);
     }
+    public MyException (String errorMessage) {
+        super(errorMessage);
+    }
 }

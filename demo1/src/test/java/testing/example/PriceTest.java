@@ -27,7 +27,7 @@ public class PriceTest {
     public void i_choose_speed_cleaning() {
         Platform.runLater(() -> {
             obj.speedBH();
-            Alert alert = obj.alert;
+            Alert alert = obj.getALERT();
             assertEquals("Speed Cleaning", alert.getTitle());
             assertEquals(null, alert.getHeaderText());
         });
@@ -36,7 +36,7 @@ public class PriceTest {
     @Then("the price will be {int}")
     public void the_price_will_be(Integer int1) throws IOException {
         Platform.runLater(() -> {
-            Alert alert = obj.alert;
+            Alert alert = obj.getALERT();
             assertNotNull(alert);
             assertEquals("The Price: "+ obj.getprice(), alert.getContentText());
         });
@@ -58,7 +58,7 @@ public class PriceTest {
     public void i_choose_deep_cleaning() {
         Platform.runLater(() -> {
             obj.speedBH();
-            Alert alert = obj.alert;
+            Alert alert = obj.getALERT();
             assertEquals("Deep Cleaning", alert.getTitle());
             assertEquals(null, alert.getHeaderText());
         });
@@ -80,7 +80,7 @@ public class PriceTest {
     public void i_choose_dry_cleaning() throws InterruptedException {
         Platform.runLater(() -> {
             obj.speedBH();
-            Alert alert = obj.alert;
+            Alert alert = obj.getALERT();
             assertEquals("Dry Cleaning", alert.getTitle());
             assertEquals(null, alert.getHeaderText());
         });

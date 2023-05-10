@@ -18,6 +18,13 @@ import java.util.logging.Logger;
 public class WorkersceneCont {
     Scene1Controller s1 = new Scene1Controller();
     String reportFile = "C:\\Users\\Msys\\Desktop\\Cleaning\\Reports.txt";
+    String orderFile = "C:\\Users\\Msys\\Desktop\\Cleaning\\Order.txt";
+    String availableWFile = "C:\\Users\\Msys\\Desktop\\Cleaning\\AvailableW.txt";
+    String workerFile = "C:\\Users\\Msys\\Desktop\\Cleaning\\Workers.txt";
+    String customerFile = "C:\\Users\\Msys\\Desktop\\Cleaning\\Customers.txt";
+    String adminFile = "C:\\Users\\Msys\\Desktop\\Cleaning\\Untitled.txt";
+    String thankYou = "Thank you for using our service. We hope to see you again soon!";
+    String saveOrder = "Order saved to file: ";
     private boolean sent = false;
     @FXML
     private TextArea textArea;
@@ -27,7 +34,7 @@ public class WorkersceneCont {
 
     private String status;
     private String availableWorker;
-    private static String  msgText;
+    private String  msgText;
     @FXML
     public void reloading(ActionEvent event) throws FileNotFoundException {
 
@@ -48,27 +55,25 @@ public class WorkersceneCont {
     public String getTextID() {
         return textID.getText();
     }
-    private static final Logger LOGGER = Logger.getLogger(Scene2Controller.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(WorkersceneCont.class.getName());
     public void orders() throws IOException {
-        String filename = "Order.txt";
         String id = textID.getText();
-        BufferedWriter writer = new BufferedWriter(new FileWriter(filename, true));
+        BufferedWriter writer = new BufferedWriter(new FileWriter(orderFile, true));
         Scene1Controller s = new Scene1Controller();
-        writer.write(s.getUsername() + "\t" + id + "\t" + status + "\n");        writer.close();
-        LOGGER.info("Order saved to file: " + filename);
+        writer.write(s.getScene2Username() + "\t" + id + "\t" + status + "\n");        writer.close();
+        LOGGER.info(saveOrder + orderFile);
     }
 
     public void availableW() throws IOException {
-        String filename = "AvailableW.txt";
-        BufferedWriter writer = new BufferedWriter(new FileWriter(filename, true));
+        BufferedWriter writer = new BufferedWriter(new FileWriter(availableWFile, true));
         Scene1Controller s = new Scene1Controller();
-        writer.write(s.getUsername() + "\t" + availableWorker + "\n");
+        writer.write(s.getScene2Username() + "\t" + availableWorker + "\n");
         writer.close();
-        LOGGER.info("Order saved to file: " + filename);
+        LOGGER.info(saveOrder + availableWFile);
     }
 
     public String getWorkerStatus(String workerName) throws IOException {
-        File file = new File("AvailableW.txt");
+        File file = new File(availableWFile);
         Scanner scanner = new Scanner(file);
         while (scanner.hasNextLine()) {
             String line = scanner.nextLine();
@@ -81,27 +86,27 @@ public class WorkersceneCont {
         return null;
     }
     @FXML
-    public void waiting(ActionEvent event) throws IOException {
+    public void waiting(ActionEvent event) throws IOException, MyException {
         status = "Added";
         availableWorker = "Unavailable";
-        msgText = "Your order has been added to the system and is waiting for a worker to accept it.\n Your order ID is: " + textID.getText() + "\n Thank you for using our service.\n";
+        msgText = "Your order has been added to the system and is waiting for a worker to accept it.\n Your order ID is: " + textID.getText() + "\n" +  thankYou +"\n";
         String number = getTextID();
         getName(String.valueOf(number));
         orders();
         availableW();
     }
     @FXML
-    public void inTreatment(ActionEvent event) throws IOException {
+    public void inTreatment(ActionEvent event) throws IOException, MyException {
         status = "InTreatment";
-        msgText = "Your order has been accepted by a worker and is being treated.\n Your order ID is: " + textID.getText() + "\n Thank you for using our service.\n";
+        msgText = "Your order has been accepted by a worker and is being treated.\n Your order ID is: " + textID.getText() + "\n" +  thankYou +"\n";
         getName(textID.getText());
         orders();
     }
     @FXML
-    public void complete(ActionEvent event) throws IOException {
+    public void complete(ActionEvent event) throws IOException, MyException {
         status = "Complete";
         availableWorker = "Available";
-        msgText = "Your order has been completed.\n Your order ID is: " + textID.getText() + "\n Thank you for using our service.\n";
+        msgText = "Your order has been completed.\n Your order ID is: " + textID.getText() + "\n" +  thankYou +"\n";
         getName(textID.getText());
         orders();
         availableW();
@@ -112,16 +117,14 @@ public class WorkersceneCont {
             try {
                 Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Scene1.fxml")));
                 Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                //stage.setScene(new Scene(root));
                 stage.setScene(Main.scene1);
-
             } catch (IOException e) {
                 e.printStackTrace();
             }
         });
     }
     private String messageBody;
-    public String getName(String id) {
+    public String getName(String id) throws MyException {
         String name = "";
         sent = false;
         try (Scanner scanner = new Scanner(new File(reportFile))) {
@@ -133,7 +136,13 @@ public class WorkersceneCont {
                     String email = s1.getEmailAddress(name);
                     String subject = "OrderUpdate";
                     messageBody = msgText;
-                    new EmailSender(email, subject, messageBody);
+                    try {
+                        new EmailSender(email, subject, messageBody);
+                    }
+                    catch (Exception e) {
+                       throw new MyException((IOException) e);
+                    }
+
                    sent = true;
                 }
 

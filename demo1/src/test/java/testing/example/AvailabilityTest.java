@@ -39,7 +39,7 @@ public class AvailabilityTest {
             Scene1Controller obj1 = new Scene1Controller();
             String workerStatus = null; // Get the worker's status from the text file
             try {
-                workerStatus = obj.getWorkerStatus(obj1.getUsername());
+                workerStatus = obj.getWorkerStatus(obj1.getScene2Username());
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
@@ -65,7 +65,7 @@ public class AvailabilityTest {
 
             String workerStatus = null; // Get the worker's status from the text file
             try {
-                workerStatus = obj.getWorkerStatus(obj1.getUsername());
+                workerStatus = obj.getWorkerStatus(obj1.getScene2Username());
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
