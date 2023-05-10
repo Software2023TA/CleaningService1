@@ -76,7 +76,7 @@ public class Scene1Controller {
     }
 
     public void setScene2Username(String scene2Username) {
-        this.scene2Username = scene2Username;
+        Scene1Controller.scene2Username = scene2Username;
     }
 
     public static String scene2Username = null;

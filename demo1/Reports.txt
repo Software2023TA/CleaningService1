@@ -20,3 +20,5 @@
 019	tareq		cover	200x200	Dry Cleaning	338
 020	Hana		cover	300x200	Dry Cleaning	383
 021	tareq		cover	200x200	Dry Cleaning	0
+022	tareq		cover	300x200	Dry Cleaning	383
+023	tareq		carpet	300x200	Dry Cleaning	383
