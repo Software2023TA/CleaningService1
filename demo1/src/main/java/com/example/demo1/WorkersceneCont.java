@@ -24,7 +24,8 @@ public class WorkersceneCont {
     String customerFile = "C:\\Users\\Msys\\Desktop\\Cleaning\\Customers.txt";
     String adminFile = "C:\\Users\\Msys\\Desktop\\Cleaning\\Untitled.txt";
     String thankYou = "Thank you for using our service. We hope to see you again soon!";
-    String saveOrder = "Order saved to file: ";
+    String saveOrder = "Order saved to file: " + orderFile;
+    String saveAva = "Order saved to file: " + availableWFile;
     private boolean sent = false;
     @FXML
     private TextArea textArea;
@@ -61,7 +62,7 @@ public class WorkersceneCont {
         BufferedWriter writer = new BufferedWriter(new FileWriter(orderFile, true));
         Scene1Controller s = new Scene1Controller();
         writer.write(s.getScene2Username() + "\t" + id + "\t" + status + "\n");        writer.close();
-        LOGGER.info(saveOrder + orderFile);
+        LOGGER.info(saveOrder);
     }
 
     public void availableW() throws IOException {
@@ -69,7 +70,7 @@ public class WorkersceneCont {
         Scene1Controller s = new Scene1Controller();
         writer.write(s.getScene2Username() + "\t" + availableWorker + "\n");
         writer.close();
-        LOGGER.info(saveOrder + availableWFile);
+        LOGGER.info(saveAva);
     }
 
     public String getWorkerStatus(String workerName) throws IOException {
@@ -136,12 +137,7 @@ public class WorkersceneCont {
                     String email = s1.getEmailAddress(name);
                     String subject = "OrderUpdate";
                     messageBody = msgText;
-                    try {
-                        new EmailSender(email, subject, messageBody);
-                    }
-                    catch (Exception e) {
-                       throw new MyException((IOException) e);
-                    }
+                    emailCall(email, subject, messageBody);
 
                    sent = true;
                 }
@@ -151,6 +147,15 @@ public class WorkersceneCont {
             e.printStackTrace();
         }
         return name;
+    }
+
+    private void emailCall(String email, String subject,String messageBody) throws MyException {
+        try {
+            new EmailSender(email, subject, messageBody);
+        }
+        catch (Exception e) {
+            throw new MyException((IOException) e);
+        }
     }
 
     public boolean getsent() {

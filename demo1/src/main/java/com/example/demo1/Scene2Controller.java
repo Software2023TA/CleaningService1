@@ -94,8 +94,8 @@ public class Scene2Controller {
     }
     private static boolean iscover =false;
 
-    public void setIscover(boolean iscover) {
-        this.iscover = iscover;
+    public static void setIscover(boolean iscover) {
+        Scene2Controller.iscover = iscover;
     }
     public boolean getIscover(){
         return iscover;
@@ -262,8 +262,8 @@ public class Scene2Controller {
         readymessage();
     }
     private static boolean isclicked =false;
-    public void setIsclicked(boolean isclicked) {
-        this.isclicked = isclicked;
+    public static void setIsclicked(boolean isclicked) {
+        Scene2Controller.isclicked = isclicked;
     }
     public boolean getIsclicked(){
         return isclicked;
@@ -366,12 +366,17 @@ public class Scene2Controller {
         LOGGER.info(fileName);
     }
 
-    public void onProceedclick() throws IOException {
+    public void onProceedclick() throws MyException {
         saveToTextFile();
        String email12 = s1.getEmailAddress(s1.getScene2Username());
         String subject = orderAccepted;
         String messageBody = msgText;
-        new EmailSender(email12, subject, messageBody);
+        try {
+            new EmailSender(email12, subject, messageBody);
+        }catch (Exception e){
+            throw new MyException("Email not sent");
+        }
+
 
     }
 }
