@@ -57,3 +57,6 @@ null	Unavailable
 null	Unavailable
 newnew	Unavailable
 newnew	Available
+null	Unavailable
+null	Unavailable
+null	Available

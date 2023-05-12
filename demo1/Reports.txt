@@ -18,3 +18,4 @@
 029	amerko2		cover	300x200	Deep Cleaning	0
 030	newnew		cover	300x200	Speed Cleaning	387
 031	newnew	City	cover	300x200	Speed Cleaning	0
+032	amerkobari12	Rafidia	carpet	300x200	Dry Cleaning	0
